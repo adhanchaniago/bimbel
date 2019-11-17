@@ -1,0 +1,70 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+nav {
+	display: flex;
+	justify-content: space-around;
+	align-content: center;
+	min-height: 8vh;
+	background-color: whitesmoke;
+}
+
+.logo {
+	margin-top: 3px;
+	font-family: 'Euphoria Script', cursive;
+
+}
+
+.nav-links {
+	display: flex;
+	margin-top: 10px;
+	justify-content: space-around;
+	width: 40%;
+}
+
+.nav-links li {
+	list-style: none;
+}
+
+.nav-links .hide {
+	display: none;
+}
+
+.burger {
+	margin-top: 22px;
+}
+
+.burger div {
+
+	width: 25px;
+	height: 2px;
+	background-color: black;
+	margin: 3px;
+}
+
+@media only screen and (max-width:768px) {
+	body {
+		display: hide;
+	}
+}
+
+@media screen and (max-width:1024px) {
+	.nav-links .hide {
+		width: 50%;
+	}
+}
+
+@media screen and(max-width:768px) {
+	.nav-links .hide {
+		position: absolute;
+		right: 0px;
+		height: 92vh;
+		top: 8vh;
+		background-color: ivory;
+		display: flex;
+		flex-direction: column;
+	}
+}
