@@ -1,5 +1,5 @@
 <?php
-if (defined('BASEPATH')) exit or ('no direct script access allowed');
+(defined('BASEPATH')) or exit('no direct script access allowed');
 
 class Login extends CI_Controller
 {
