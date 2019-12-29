@@ -26,7 +26,7 @@
                         <a href="<?= site_url('C_admin/tambah') ?>">Tambah Bimbel</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('C_admin/fasilitas') ?>">Fasilitas Bimbel</a>
+                        <a href="<?= site_url('C_admin/foto') ?>">Foto Bimbel</a>
                     </li>
                     <li>
                         <a href="<?= site_url('C_admin/edit') ?>">Edit Bimbel</a>

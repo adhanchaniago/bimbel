@@ -52,11 +52,20 @@ class C_Admin extends CI_Controller
 
     public function fotoact()
     {
-        $this->m_admin->insertimg();
+        $data['tambah'] = [
+            'foto' => $this->m_admin->insertimg('foto')
+        ];
         redirect('c_admin/foto');
     }
 
-
+    // Edit
+    public function edit()
+    {
+        $data['tampil'] = [
+            'bimbel' => $this->m_admin->getdata('bimbel')
+        ];
+        $this->page('admin/v_edit', $data['tampil']);
+    }
     public function page($content, $data)
     {
         $this->load->view('admin/header');

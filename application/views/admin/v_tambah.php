@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="fasilitaas[]" value="Ac">
+                    <input type="checkbox" class="form-check-input" name="fasilitas[]" value="Ac">
                     <label for="" class="form-check-label">Ac</label>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="form-check">
-                    <input type="checkbox" name="fasiliras[]" class="form-check-input" value="SmartBoard">
+                    <input type="checkbox" name="fasilitas[]" class="form-check-input" value="SmartBoard">
                     <label for="" class="form-check-label">SmartBoard</label>
                 </div>
             </div>

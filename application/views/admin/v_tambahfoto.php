@@ -6,7 +6,7 @@
             <li class="breadcrumb-item active" aria-current="page">Tambah Foto</li>
         </ol>
     </nav>
-    <form action="<?= site_url('c_admin/fotoact') ?>" method="post">
+    <form action="<?= site_url('c_admin/fotoact') ?>" method="post" enctype="multipart/form-data">
         <h2>Tambah Foto</h2>
         <br>
         <div class="form-group">
@@ -20,7 +20,7 @@
         <br>
         <div class="input-group mb-3">
             <div class="custom-file">
-                <input type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon01">
+                <input type="file" class="custom-file-input" name="poto">
                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
             </div>
         </div>

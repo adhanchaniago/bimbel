@@ -11,6 +11,7 @@ class M_Admin extends CI_Model
         $data["along"] = $this->input->post('along');
         $data["fasilitas"] = implode(",", $this->input->post('fasilitas'));
         $data["biaya"] = $this->input->post('biaya');
+        $data["situs"] = $this->input->post('situs');
         $data["telpon"] = $this->input->post('telpon');
         $data["email"] = $this->input->post('email');
         $data["deskripsi"] = $this->input->post('deskripsi');
@@ -22,6 +23,7 @@ class M_Admin extends CI_Model
             'alamatlong' => $data["along"],
             'fasilitas' => $data["fasilitas"],
             'biaya' => $data["biaya"],
+            'situs' => $data["situs"],
             'telpon' => $data["telpon"],
             'email' => $data["email"],
             'deskripsi' => $data["deskripsi"]
@@ -32,9 +34,24 @@ class M_Admin extends CI_Model
     }
 
     //tambah foto
-    public function insertimg()
+    public function insertimg($table)
     {
-        $config ['upload_path'] = ''
+        $id = $this->input->post('id_bimbel');
+        $foto = $_FILES['poto']['name'];
+        $tmp = $_FILES['poto']['tmp_name'];
+        $fotobaru = date('dmYHis') . $foto;
+
+        $path = "aset/img/" . $fotobaru;
+
+        if (move_uploaded_file($tmp, $path)) {
+            $res = array(
+                "id_bimbel" => $id,
+                "foto" => $fotobaru
+            );
+
+            $res = $this->db->insert("foto", $res);
+            return $res;
+        }
     }
 
     public function getdata($table)
