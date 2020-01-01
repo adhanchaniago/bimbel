@@ -6,6 +6,7 @@ class C_Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_admin');
+        $this->load->model('m_metod');
     }
 
     public function index()
@@ -58,6 +59,7 @@ class C_Admin extends CI_Controller
         redirect('c_admin/foto');
     }
 
+
     // Edit
     public function edit()
     {
@@ -66,6 +68,7 @@ class C_Admin extends CI_Controller
         ];
         $this->page('admin/v_edit', $data['tampil']);
     }
+
     public function page($content, $data)
     {
         $this->load->view('admin/header');

@@ -34,7 +34,7 @@ class M_Admin extends CI_Model
     }
 
     //tambah foto
-    public function insertimg($table)
+    public function insertimg()
     {
         $id = $this->input->post('id_bimbel');
         $foto = $_FILES['poto']['name'];
@@ -54,6 +54,7 @@ class M_Admin extends CI_Model
         }
     }
 
+    // Get data
     public function getdata($table)
     {
         $res = $this->db->get($table);
