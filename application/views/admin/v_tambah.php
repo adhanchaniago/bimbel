@@ -20,8 +20,12 @@
             <input type="text" class="form-control" name="alamat">
         </div>
         <div class="form-group">
-            <label for="">Alamat Long</label>
-            <input type="text" class="form-control" name="along">
+            <label for="">Latitude</label>
+            <input type="text" class="form-control" name="sma8">
+        </div>
+        <div class="form-group">
+            <label for="">Longitude</label>
+            <input type="text" class="form-control" name="sma9">
         </div>
         <label for="">Fasilitas</label>
         <div class="row">
@@ -98,7 +102,7 @@
         </div>
         <div class="form-group">
             <label for="">Alamat Email</label>
-            <input type="email" class="form-control" name="email">
+            <input type="text" class="form-control" name="email">
         </div>
         <div class="form-group">
             <label for="">Deskripsi</label>

@@ -25,8 +25,20 @@
                     <td><?= $b['id_bimbel'] ?></td>
                     <td><?= $b['nama'] ?></td>
                     <td><?= $b['alamat'] ?></td>
-                    <td class="text-center"><a href=""><button type="button" class="btn btn-info btn-sm">Edit</button></a>
-                        <a href=""><button type="button" class="btn btn-danger btn-sm">Hapus</button></a></td>
+                    <td scope="row" class="text-center">
+                        <button class="btn btn-success" type="submit" name="ubah" style="padding: 3px;">
+                            <a onclick="return confirm('Anda yakin akan mengubah data?')" href="<?php echo site_url('c_admin/formedit/') . $b['id_bimbel'] ?>" style=" color: #fff; text-decoration: none; font-size: 12px;">
+                                <i class="fa fa-edit fa-2x"></i>
+                            </a>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" type="submit" name="hapus" style="padding: 3px;">
+                            <a onclick="return confirm('Anda yakin akan menghapus data?')" href="<?= site_url('c_admin/delete/') . $b['id_bimbel'] ?>" style="color: #fff; text-decoration: none; font-size: 12px;">
+                                <i class="fas fa-trash-alt fa-2x"></i>
+                            </a>
+                        </button>
+                    </td>
                 </tr>
             <?php } ?>
         </tbody>

@@ -26,8 +26,20 @@
                         <th scope="row"><?= $i++; ?></th>
                         <td><?= $u['id_bimbel'] ?></td>
                         <td><img src="<?= base_url('aset/img/' . $u['foto']) ?>" width="70%" height="70%"></td>
-                        <td class="text-center"><a href=""><button class="btn btn-info btn-sm">Edit</button></a> <br><br>
-                            <a href=""><button class="btn btn-danger btn-sm">Hapus</button></a></td>
+                        <td scope="row" class="text-center">
+                            <button class="btn btn-success" type="submit" name="ubah" style="padding: 3px;">
+                                <a onclick="return confirm('Anda yakin akan mengubah data?')" href="<?php echo site_url('c_admin/formedit/') . $u['id_bimbel'] ?>" style=" color: #fff; text-decoration: none; font-size: 12px;">
+                                    <i class="fa fa-edit fa-2x"></i>
+                                </a>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" type="submit" name="hapus" style="padding: 3px;">
+                                <a onclick="return confirm('Anda yakin akan menghapus data?')" href="<?= site_url('c_admin/deletfoto/') . $u['id_bimbel'] ?>" style="color: #fff; text-decoration: none; font-size: 12px;">
+                                    <i class="fas fa-trash-alt fa-2x"></i>
+                                </a>
+                            </button>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>

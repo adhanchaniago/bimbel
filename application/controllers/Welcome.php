@@ -23,7 +23,6 @@ class Welcome extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('m_metod');
-		$this->load->model('m_admin');
 	}
 
 	public function index()
@@ -34,9 +33,16 @@ class Welcome extends CI_Controller
 	public function hitung()
 	{
 		$this->m_metod->hitungwp();
-		$this->load->view('v_halu');
+		// $data['tampil'] = [
+		// 	'tampil' => $this->m_metod->hitungwp('bimbel')
+		// ];
+		$this->load->view('maps');
 	}
-
+	public function coba()
+	{
+		$this->m_metod->distance($lat1, $lon1, $lat2, $lon2, $unit);
+		echo distance(32.9697, -96.80322, 29.46786, -98.53506, "K") . " Kilometers<br>";
+	}
 
 
 

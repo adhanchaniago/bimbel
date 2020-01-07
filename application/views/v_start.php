@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="<?= base_url('aset/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('aset/css/style.css') ?>">
     <title>Document</title>
+    <style type="text/css">
+        #map {
+            margin: 10px;
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+        }
+    </style>
+    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 </head>
 
 <body>
@@ -93,15 +102,47 @@
             </div>
             <br>
             <label for="">Jarak Kebimbel</label>
+            <div id="map"></div>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Masukkan Jarak" aria-label="Masukkan Jarak" aria-describedby="basic-addon2" name="jarak">
-                <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2">Kilometer</span>
-                </div>
+                <input type="text" name='latitude' id='latitude' hidden>
+                <input type="text" name='longitude' id='longitude' hidden>
             </div>
 
             <button type="submit" class="btn btn-primary">submit</button>
         </form>
+        <script type="text/javascript">
+            //* Fungsi untuk mendapatkan nilai latitude longitude
+            function updateMarkerPosition(latLng) {
+                document.getElementById('latitude').value = [latLng.lat()]
+                document.getElementById('longitude').value = [latLng.lng()]
+            }
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: new google.maps.LatLng(-7.781921, 110.364678),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            //posisi awal marker   
+            var latLng = new google.maps.LatLng(-7.781921, 110.364678);
+
+            /* buat marker yang bisa di drag lalu 
+              panggil fungsi updateMarkerPosition(latLng)
+             dan letakan posisi terakhir di id=latitude dan id=longitude
+             */
+            var marker = new google.maps.Marker({
+                position: latLng,
+                title: 'lokasi',
+                map: map,
+                draggable: true
+            });
+
+            updateMarkerPosition(latLng);
+            google.maps.event.addListener(marker, 'drag', function() {
+                // ketika marker di drag, otomatis nilai latitude dan longitude
+                //menyesuaikan dengan posisi marker 
+                updateMarkerPosition(marker.getPosition());
+            });
+        </script>
         <script src="<?= base_url('aset/js/bootstrap.min.js') ?>"></script>
 
 </body>
