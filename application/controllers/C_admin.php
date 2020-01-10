@@ -9,6 +9,7 @@ class C_Admin extends CI_Controller
         $this->load->model('m_metod');
     }
 
+    // Tambah bimbel
     public function index()
     {
         $data['dasboard'] = [
@@ -16,111 +17,107 @@ class C_Admin extends CI_Controller
         ];
         $this->page('admin/content', $data['dasboard']);
     }
-
-
-    //tambah data
     public function tambah()
     {
-        $data = [];
-        $this->page('admin/v_tambah', $data);
+        $data['tambah'] = [];
+        $this->page('admin/v_tambah', $data['tambah']);
     }
-
     public function tambahact()
     {
-        $data['input'] = [
-            'tambah' => $this->m_admin->insert()
+        $data['tambah'] = [
+            'insert' => $this->m_admin->insert()
         ];
         redirect('c_admin');
     }
 
-
-    //Foto
-    public function foto()
-    {
-        $data['foto'] = [
-            'foto' => $this->m_admin->getdata('foto')
-        ];
-        $this->page('admin/v_foto', $data['foto']);
-    }
-    public function tambahfoto()
-    {
-        $data['tambah'] = [
-            'bimbel' => $this->m_admin->getdata('bimbel')
-        ];
-        $this->page('admin/v_tambahfoto', $data['tambah']);
-    }
-    public function fotoact()
-    {
-        $data['tambah'] = [
-            'foto' => $this->m_admin->insertimg('foto')
-        ];
-        redirect('c_admin/foto');
-    }
-    public function deletfoto($id)
-    {
-        $data = array('id_bimbel' => $id);
-        $this->m_admin->deletfoto($data);
-        redirect('c_admin/foto');
-    }
-
-
-    // EditS
-    public function edit()
-    {
-
-        $data['tampil'] = [
-            'bimbel' => $this->m_admin->getdata('bimbel')
-        ];
-        $this->page('admin/v_edit', $data['tampil']);
-    }
-    public function formedit()
+    // edit bimbel
+    public function edit($id)
     {
         $id = $this->uri->segment(3);
-        $data['tampil'] = [
-            'edit' => $this->m_admin->Getedit($id)
+        $data['edit'] = [
+            'edit' => $this->m_admin->getedit($id)
         ];
-        $this->page('admin/v_formedit', $data['tampil']);
+        $this->page('admin/v_formedit', $data['edit']);
     }
     public function editact()
     {
-        $data["id"] = $this->input->post('id');
-        $data["nama"] = $this->input->post('nama');
-        $data["alamat"] = $this->input->post('alamat');
-        $data["sma8"] = $this->input->post('sma8');
-        $data["sma9"] = $this->input->post('sma9');
-        $data["fasilitas"] = implode(",", $this->input->post('fasilitas'));
-        $data["biaya"] = $this->input->post('biaya');
-        $data["situs"] = $this->input->post('situs');
-        $data["telpon"] = $this->input->post('telpon');
-        $data["email"] = $this->input->post('email');
-        $data["deskripsi"] = $this->input->post('deskripsi');
-
-        $res = array(
-            'id_bimbel' => $data["id"],
-            'nama' => $data["nama"],
-            'alamat' => $data["alamat"],
-            'sma8' => $data["sma8"],
-            'sma9' => $data["sma9"],
-            'fasilitas' => $data["fasilitas"],
-            'biaya' => $data["biaya"],
-            'situs' => $data["situs"],
-            'telpon' => $data["telpon"],
-            'email' => $data["email"],
-            'deskripsi' => $data["deskripsi"]
-        );
-        $where = array('id_bimbel' => $data["id"]);
-        $this->m_admin->update($where, $res, 'bimbel');
-        redirect('c_admin/edit');
+        $this->m_admin->Update();
+        redirect('c_admin');
     }
 
-
-    //Halaman Delete
-    public function delete($id)
+    // deletebimbel
+    public function delbimbel()
     {
-        $data = array('id_bimbel' => $id);
-        $this->m_admin->delete($data);
-        $this->m_admin->deletfoto($data);
-        redirect('c_admin/edit', 'refresh');
+        $id = $this->uri->segment(3);
+        $this->m_admin->delete($id);
+        redirect('c_admin');
+    }
+
+    // foto
+    public function foto()
+    {
+        $data["foto"] = [
+            'foto' => $this->m_admin->getdata('foto')
+        ];
+        $this->page('admin/v_foto', $data["foto"]);
+    }
+    public function tambahfoto()
+    {
+        $data['foto'] = [
+            'bimbel' => $this->m_admin->getdata('bimbel')
+        ];
+        $this->page('admin/v_tambahfoto', $data['foto']);
+    }
+    public function fotoact()
+    {
+        $this->m_admin->insertimg();
+        redirect('c_admin/foto');
+    }
+
+    // Sekolah
+    public function sekolah()
+    {
+        $data['sekolah'] = [
+            'tampil' => $this->m_admin->getdata('sekolah')
+        ];
+        $this->page('admin/v_sekolah', $data['sekolah']);
+    }
+    public function addschool()
+    {
+        $data['sekolah'] = [
+            'bimbel' => $this->m_admin->getdata('bimbel')
+        ];
+        $this->page('admin/v_addschol', $data['sekolah']);
+    }
+    public function insertschool()
+    {
+        $this->m_admin->insertschool();
+        redirect('c_admin/sekolah');
+    }
+    public function editschol()
+    {
+        $id = $this->uri->segment(3);
+        $data['sekolah'] = [
+            'edit' => $this->m_admin->editschol($id),
+            'bimbel' => $this->m_admin->getdata('bimbel'),
+            'sekolah' => $this->m_admin->getdata('sekolah')
+        ];
+        $this->page('admin/v_editschol', $data['sekolah']);
+    }
+    public function editschoolact()
+    {
+        $this->m_admin->updatesekolah();
+        redirect('c_admin/sekolah');
+    }
+
+    // Fasilitas
+    public function fasilitas()
+    {
+        $data['fasilitas'] = [
+            'fasilitas' => $this->m_admin->getdata('fasilitas'),
+            'getfasilitas' => $this->m_admin->getdata('fasilitas')
+        ];
+        $this->page('admin/v_fasilitas', $data['fasilitas']);
     }
 
 

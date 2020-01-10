@@ -29,7 +29,16 @@
                         <a href="<?= site_url('C_admin/foto') ?>">Foto Bimbel</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('C_admin/edit') ?>">Edit Bimbel</a>
+                        <a href="<?= site_url('C_admin/sekolah') ?>">Sekolah</a>
+                    </li>
+                    <li>
+                        <a href="<?= site_url('C_admin/fasilitas') ?>">Fasilitas Bimbel</a>
+                    </li>
+                    <li>
+                        <a href="<?= site_url('C_admin/deskripsi') ?>">Deskripsi bimbel</a>
+                    </li>
+                    <li>
+                        <a href="<?= site_url('C_admin/paket') ?>">Paket Bimbel</a>
                     </li>
                 </ul>
             </li>

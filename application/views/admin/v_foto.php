@@ -9,10 +9,10 @@
     <a href="<?= site_url('c_admin/tambahfoto') ?>"><button class="btn btn-primary">Tambah Foto</button></a>
     <br>
     <br>
-    <div class="">
+    <div class="table-responsive">
         <table class="table">
-            <thead>
-                <tr class="text-center">
+            <thead class="thead-light">
+                <tr>
                     <th scope="col">No</th>
                     <th scope="col">Id Bimbel</th>
                     <th scope="col">Foto</th>
@@ -24,21 +24,25 @@
                 foreach ($foto as $u) { ?>
                     <tr>
                         <th scope="row"><?= $i++; ?></th>
-                        <td><?= $u['id_bimbel'] ?></td>
+                        <td><?= $u['id_foto'] ?></td>
                         <td><img src="<?= base_url('aset/img/' . $u['foto']) ?>" width="70%" height="70%"></td>
-                        <td scope="row" class="text-center">
-                            <button class="btn btn-success" type="submit" name="ubah" style="padding: 3px;">
-                                <a onclick="return confirm('Anda yakin akan mengubah data?')" href="<?php echo site_url('c_admin/formedit/') . $u['id_bimbel'] ?>" style=" color: #fff; text-decoration: none; font-size: 12px;">
-                                    <i class="fa fa-edit fa-2x"></i>
-                                </a>
-                            </button>
-                        </td>
                         <td>
-                            <button class="btn btn-danger" type="submit" name="hapus" style="padding: 3px;">
-                                <a onclick="return confirm('Anda yakin akan menghapus data?')" href="<?= site_url('c_admin/deletfoto/') . $u['id_bimbel'] ?>" style="color: #fff; text-decoration: none; font-size: 12px;">
-                                    <i class="fas fa-trash-alt fa-2x"></i>
-                                </a>
-                            </button>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <button class="btn btn-info btn-sm" type="submit" name="ubah">
+                                        <a onclick="return confirm('Anda yakin akan mengubah data?')" href="<?php echo site_url('c_admin/formedit/') . $u['id_foto'] ?>">
+                                            <i class="fa fa-edit fa-2x"></i>
+                                        </a>
+                                    </button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button class="btn btn-danger btn-sm" type="submit" name="hapus">
+                                        <a onclick="return confirm('Anda yakin akan menghapus data?')" href="<?= site_url('c_admin/deletfoto/') . $u['id_foto'] ?>">
+                                            <i class="fas fa-trash-alt fa-2x"></i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 <?php } ?>

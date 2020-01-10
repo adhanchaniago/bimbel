@@ -35,9 +35,12 @@
 
         <!-- Content -->
         <form action="<?= site_url('welcome/hitung') ?>" method="POST">
+
             <div class="form-group">
-                <label for="">Harga</label>
-                <input type="text" class="form-control" name="biaya">
+
+                <label for="">Harga</label><br>
+                <input type="number" min="2000000" max="13990000" class="form-control" name="biaya">
+
             </div>
             <label for="">Fasilitas</label>
             <div class="row">
@@ -101,13 +104,13 @@
                 </div>
             </div>
             <br>
-            <label for="">Jarak Kebimbel</label>
-            <div id="map"></div>
-            <div class="input-group mb-3">
-                <input type="text" name='latitude' id='latitude' hidden>
-                <input type="text" name='longitude' id='longitude' hidden>
+            <div class="form-group">
+                <label for="">Asal Sekolah</label>
+                <select name="sma" class="form-control">
+                    <option value="sma8">SMA 8 Yogyakarta</option>
+                    <option value="sma9">SMA 9 Yogyakarta</option>
+                </select>
             </div>
-
             <button type="submit" class="btn btn-primary">submit</button>
         </form>
         <script type="text/javascript">

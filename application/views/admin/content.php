@@ -8,18 +8,15 @@
 
     <div class="table-responsive">
         <table class="table">
-            <thead>
+            <thead class="thead-light">
                 <tr>
                     <th scope="col">NO</th>
                     <th scope="col">Id Bimbel</th>
                     <th scope="col">Nama Bimbel</th>
                     <th scope="col">Alamat Bimbel</th>
-                    <th scope="col">Fasilitas</th>
-                    <th scope="col">Biaya</th>
-                    <th scope="col">Situs Terkait</th>
+                    <th scope="col">E Mail</th>
                     <th scope="col">Telpon</th>
-                    <th scope="col">E-mail</th>
-                    <th scope="col">Deskripsi</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,12 +27,22 @@
                         <td><?= $u['id_bimbel'] ?></td>
                         <td><?= $u['nama'] ?></td>
                         <td><?= $u['alamat'] ?></td>
-                        <td><?= $u['fasilitas'] ?></td>
-                        <td><?= $u['biaya'] ?></td>
-                        <td><?= $u['situs'] ?></td>
-                        <td><?= $u['telpon'] ?></td>
                         <td><?= $u['email'] ?></td>
-                        <td><?= $u['deskripsi'] ?></td>
+                        <td><?= $u['telpon'] ?></td>
+                        <td>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-info btn-sm" style="padding: 3px; margin: 5px;">
+                                        <a href="<?= site_url('c_admin/edit/') . $u['id_bimbel'] ?>"><i class="fa fa-edit fa-2x"></i></a>
+                                    </button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-danger" style="padding: 3px; margin: 5px;">
+                                        <a href="<?= site_url('c_admin/delbimbel/') . $u['id_bimbel'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
