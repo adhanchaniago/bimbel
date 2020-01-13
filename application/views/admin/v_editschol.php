@@ -9,7 +9,7 @@
     <br>
     <h3>Edit Sekolah</h3>
     <br>
-    <form action="<?= site_url('c_admin/editschoolact') ?>" method="POST">
+    <form action="<?= site_url('c_edit/editschoolact') ?>" method="POST">
         <?php foreach ($edit->result() as $b) { ?>
             <div class="form-group">
                 <label for="">Id School</label>
@@ -18,9 +18,9 @@
             <div class="form-group">
                 <label for="">Id Bimbel</label>
                 <select name="id_bimbel" class="form-control">
-
-                    <option value="<?= $b->id_bimbel ?>"><?= $b->id_bimbel ?></option>
-
+                    <?php foreach ($bimbel as $c) { ?>
+                        <option value="<?= $c["id_bimbel"] ?>"><?= $c["id_bimbel"] ?></option>
+                    <?php } ?>
                 </select>
             </div>
             <div class="form-group">

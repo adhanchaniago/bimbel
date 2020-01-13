@@ -14,8 +14,7 @@
                     <th scope="col">Id Bimbel</th>
                     <th scope="col">Nama Bimbel</th>
                     <th scope="col">Alamat Bimbel</th>
-                    <th scope="col">E Mail</th>
-                    <th scope="col">Telpon</th>
+
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -27,18 +26,17 @@
                         <td><?= $u['id_bimbel'] ?></td>
                         <td><?= $u['nama'] ?></td>
                         <td><?= $u['alamat'] ?></td>
-                        <td><?= $u['email'] ?></td>
-                        <td><?= $u['telpon'] ?></td>
+
                         <td>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <button type="button" class="btn btn-info btn-sm" style="padding: 3px; margin: 5px;">
-                                        <a href="<?= site_url('c_admin/edit/') . $u['id_bimbel'] ?>"><i class="fa fa-edit fa-2x"></i></a>
+                                        <a href="<?= site_url('c_tampil/edit/') . $u['id_bimbel'] ?>"><i class="fa fa-edit fa-2x"></i></a>
                                     </button>
                                 </div>
                                 <div class="col-sm-6">
                                     <button type="button" class="btn btn-danger" style="padding: 3px; margin: 5px;">
-                                        <a href="<?= site_url('c_admin/delbimbel/') . $u['id_bimbel'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
+                                        <a href="<?= site_url('c_hapus/delbimbel/') . $u['id_bimbel'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
                                     </button>
                                 </div>
                             </div>

@@ -2,7 +2,7 @@
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <a href="<?= site_url('c_admin') ?>">
+            <a href="<?= site_url('c_tampil') ?>">
                 <h3>Admin<br>Bimbel</h3>
             </a>
             <strong>AB</strong>
@@ -10,7 +10,7 @@
 
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="<?= site_url('c_admin') ?>" data-toggle="collapse" aria-expanded="false">
+                <a href="<?= site_url('c_tampil') ?>" data-toggle="collapse" aria-expanded="false">
                     <i class=" fas fa-home"></i>
                     Dasboard
                 </a>
@@ -23,22 +23,25 @@
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="<?= site_url('C_admin/tambah') ?>">Tambah Bimbel</a>
+                        <a href="<?= site_url('c_tampil/tambah') ?>">Tambah Bimbel</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('C_admin/foto') ?>">Foto Bimbel</a>
+                        <a href="<?= site_url('c_tampil/foto') ?>">Foto Bimbel</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('C_admin/sekolah') ?>">Sekolah</a>
+                        <a href="<?= site_url('c_tampil/sekolah') ?>">Sekolah</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('C_admin/fasilitas') ?>">Fasilitas Bimbel</a>
+                        <a href="<?= site_url('c_tampil/fasilitas') ?>">Fasilitas Bimbel</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('C_admin/deskripsi') ?>">Deskripsi bimbel</a>
+                        <a href="<?= site_url('c_tampil/deskripsi') ?>">Deskripsi bimbel</a>
                     </li>
                     <li>
-                        <a href="<?= site_url('C_admin/paket') ?>">Paket Bimbel</a>
+                        <a href="<?= site_url('c_tampil/paket') ?>">Paket Bimbel</a>
+                    </li>
+                    <li>
+                        <a href="<?= site_url('c_tampil/social') ?>">Social Media</a>
                     </li>
                 </ul>
             </li>
