@@ -25,9 +25,9 @@
                     <li>
                         <a href="<?= site_url('c_tampil/tambah') ?>">Tambah Bimbel</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="<?= site_url('c_tampil/foto') ?>">Foto Bimbel</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="<?= site_url('c_tampil/sekolah') ?>">Sekolah</a>
                     </li>
@@ -40,23 +40,23 @@
                     <li>
                         <a href="<?= site_url('c_tampil/paket') ?>">Paket Bimbel</a>
                     </li>
-                    <li>
-                        <a href="<?= site_url('c_tampil/social') ?>">Social Media</a>
-                    </li>
+                    <!-- <li>
+                        <a href="<?= site_url('c_tampil/foto') ?>">Foto Bimbel</a>
+                    </li> -->
                 </ul>
             </li>
-            <hr>
+            <!-- <hr>
             <li>
                 <a href="<?= site_url('c_admin/notif') ?>">
                     Notification <span class="badge badge-light">2</span>
                 </a>
             </li>
-        </ul>
-        <ul class="list-unstyled CTAs">
-            <li>
-                <a href="<?= base_url() ?>" class="article text-center">Review</a>
-            </li>
-        </ul>
+        </ul> -->
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="<?= site_url('welcome') ?>" class="text-center btn btn-primary">Review</a>
+                </li>
+            </ul>
     </nav>
 
 

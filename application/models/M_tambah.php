@@ -40,7 +40,7 @@ class M_Tambah extends CI_Model
 
 
     //tambah foto
-    public function insertimg()
+    public function addfoto()
     {
         $id = $this->input->post('id_bimbel');
         $foto = $_FILES['poto']['name'];
@@ -76,19 +76,16 @@ class M_Tambah extends CI_Model
     }
 
     // tambah fasilitas
-    public function addesk()
+    public function addfasilitasbimbel()
     {
-        $data["id"] = $this->input->post('id');
-        $data["judul"] = $this->input->post('deskripsi');
-        $data["keterangan"] = $this->input->post('keterangan');
-        $data["maps"] = $this->input->post('maps');
+        $data["idbimbel"] = $this->input->post('idbimbel');
+        $data["idfas"] = $this->input->post('idfas');
+
         $res = array(
-            'id_des' => $data["id"],
-            'judul' => $data["judul"],
-            'keterangan' => $data["keterangan"],
-            'maps' => $data["maps"],
+            'id_bimbel' => $data["idbimbel"],
+            'id_fasilitas' => $data["idfas"],
         );
-        $res = $this->db->insert("deskripsi", $res);
+        $res = $this->db->insert("getfasilitas", $res);
         return $res;
     }
 

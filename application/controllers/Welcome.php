@@ -22,26 +22,23 @@ class Welcome extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_metod');
-		$this->load->model('m_admin');
+		$this->load->model('m_tampil');
+		$this->load->model('');
 	}
 
 	public function index()
 	{
-
-		$min = [
-			'tampil' => $this->db->query('SELECT biaya from bimbel')
+		$data = [
+			'tampil' => $this->m_tampil->getdata('fasilitas'),
+			'sekolah' => $this->m_tampil->getdata('sekolah')
 		];
-		$this->load->view('v_start', $min);
+
+		$this->load->view('v_start', $data);
 	}
 
 	public function hitung()
 	{
 		$this->m_metod->hitungwp();
-		// $data['tampil'] = [
-		// 	'tampil' => $this->m_metod->hitungwp('bimbel')
-		// ];
-		// $this->m_metod->hitungsaw();
 		$this->load->view('maps');
 	}
 

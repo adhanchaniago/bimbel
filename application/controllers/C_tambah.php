@@ -29,6 +29,13 @@ class C_Tambah extends CI_Controller
         redirect('c_tampil/fasilitas');
     }
 
+    // tambah fasilitas bimbel
+    public function addfasbimbel()
+    {
+        $this->m_tambah->addfasilitasbimbel();
+        redirect('c_tampil/fasilitas');
+    }
+
     // tambah Deskripsi
     public function addesk()
     {
@@ -36,10 +43,17 @@ class C_Tambah extends CI_Controller
         redirect('c_tampil/deskripsi');
     }
 
-    // tambah Deskripsi
+    // tambah Paket
     public function addpaket()
     {
         $this->m_tambah->addpaket();
         redirect('c_tampil/paket');
+    }
+
+    // tambah foto
+    public function addfoto()
+    {
+        $this->m_tambah->addfoto();
+        redirect('c_tampil/foto');
     }
 }

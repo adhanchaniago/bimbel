@@ -45,6 +45,24 @@ class C_Tampil extends CI_Controller
         ];
         $this->page('admin/v_addschol', $data);
     }
+    public function editjarak($id)
+    {
+        // $id = $this->uri->statement(3);
+        $data["sekolah"] = [
+            'edit' => $this->m_tampil->getschool($id),
+            'bimbel' => $this->m_tampil->getbimbel()
+        ];
+        $this->page('admin/v_editschol', $data["sekolah"]);
+    }
+
+    // Jarak
+    public function addjarak()
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getdata('bimbel')
+        ];
+        $this->page('admin/v_addschol', $data);
+    }
     public function editschol($id)
     {
         // $id = $this->uri->statement(3);
@@ -55,11 +73,13 @@ class C_Tampil extends CI_Controller
         $this->page('admin/v_editschol', $data["sekolah"]);
     }
 
+
     // fasilitas
     public function fasilitas()
     {
         $data = [
-            'tampil' => $this->m_tampil->getdata('fasilitas')
+            'tampil' => $this->m_tampil->getdata('fasilitas'),
+            'getfas' => $this->m_tampil->getdata('getfasilitas')
         ];
         $this->page('admin/v_fasilitas', $data);
     }
@@ -74,6 +94,16 @@ class C_Tampil extends CI_Controller
             'fasilitas' => $this->m_tampil->getfas($id)
         ];
         $this->page('admin/v_editfasilitas', $data);
+    }
+
+    // Get fasilitas
+    public function addfasbimbel()
+    {
+        $data = [
+            'bimbel' => $this->m_tampil->getdata('bimbel'),
+            'tampil' => $this->m_tampil->getdata('fasilitas')
+        ];
+        $this->page('admin/addfasbimbel', $data);
     }
 
     // Deskripsi
@@ -116,6 +146,29 @@ class C_Tampil extends CI_Controller
             'paket' => $this->m_tampil->getpaket($id)
         ];
         $this->page('admin/v_editpaket', $data);
+    }
+
+    // Foto 
+    public function foto()
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getdata('foto')
+        ];
+        $this->page('admin/v_foto', $data);
+    }
+    public function addfoto()
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getdata('bimbel')
+        ];
+        $this->page('admin/v_tambahfoto', $data);
+    }
+    public function editfoto($id)
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getfoto($id)
+        ];
+        $this->page('admin/v_editfoto', $data);
     }
 
 

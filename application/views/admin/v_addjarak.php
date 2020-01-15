@@ -3,11 +3,11 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= site_url('c_tampil') ?>">Home</a></li>
             <li class="breadcrumb-item"><a href="<?= site_url('c_tampil/sekolah') ?>">Sekolah</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Tambah Sekolah</li>
+            <li class="breadcrumb-item active" aria-current="page">Tambah Jarak Sekolah</li>
         </ol>
     </nav>
     <br>
-    <h3>Tambah Sekolah</h3>
+    <h3>Tambah Jarak Sekolah</h3>
     <br>
     <form action="<?= site_url('c_tambah/insertschool') ?>" method="POST">
         <div class="form-group">

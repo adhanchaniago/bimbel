@@ -46,4 +46,10 @@ class M_Tampil extends CI_Model
     {
         return $this->db->get_where('paket', array('id_paket' => $id));
     }
+
+    // tampil Paket
+    public function getfoto($id)
+    {
+        return $this->db->get_where('foto', array('id_foto' => $id));
+    }
 }
