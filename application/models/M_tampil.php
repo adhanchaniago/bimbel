@@ -13,14 +13,14 @@ class M_Tampil extends CI_Model
     // tampil bimbel
     public function getedit($id)
     {
-        $res = $this->db->get_where('bimbel', array('id_bimbel' => $id));
+        $res = $this->db->get_where('bimbel', array('idbim' => $id));
         return $res;
     }
 
     // tampil sekolah
     public function getschool($id)
     {
-        return $this->db->get_where('sekolah', array('id_sekolah' => $id));
+        return $this->db->get_where('sekolah', array('idsek' => $id));
     }
 
     public function getbimbel()
@@ -29,10 +29,22 @@ class M_Tampil extends CI_Model
         return $res->result_array();
     }
 
-    // tampil sekolah
+    // tampil jarak
+    public function getjar($id)
+    {
+        return $this->db->get_where('jarak', array('idjar' => $id));
+    }
+
+    // tampil fasilitas
     public function getfas($id)
     {
         return $this->db->get_where('fasilitas', array('id_fasilitas' => $id));
+    }
+
+    // tampil fasilitas bimbel
+    public function getfasbimbel($id)
+    {
+        return $this->db->get_where('getfasilitas', array('id_bimbel' => $id));
     }
 
     // tampil Deskripsi
@@ -51,5 +63,11 @@ class M_Tampil extends CI_Model
     public function getfoto($id)
     {
         return $this->db->get_where('foto', array('id_foto' => $id));
+    }
+
+    // tampil kriteria
+    public function getkriteria($id)
+    {
+        return $this->db->get_where('kriteria', array('id_kriteria' => $id));
     }
 }

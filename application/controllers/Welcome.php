@@ -23,7 +23,9 @@ class Welcome extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('m_tampil');
-		$this->load->model('');
+		$this->load->model('m_tampung');
+		$this->load->library('session');
+		$this->load->helper('url');
 	}
 
 	public function index()
@@ -36,12 +38,64 @@ class Welcome extends CI_Controller
 		$this->load->view('v_start', $data);
 	}
 
-	public function hitung()
+	public function tampung()
 	{
-		$this->m_metod->hitungwp();
-		$this->load->view('maps');
+		$data["max"] = $this->input->post('max');
+		$data["min"] = $this->input->post('min');
+		// $data["idfas"] = implode(",", $this->input->post('idfas'));
+		$data["sekolah"] = $this->input->post('sekolah');
+
+		$criteria = $this->m_tampung->criteria();
+		$bimbel = $this->m_tampung->getbim('id_bimbel');
+		$har = $this->m_tampung->getbim('harga');
+		$bobot = $this->m_tampung->bobot();
+		$ckbim = count($bimbel);
+		$ckbobot = count($bobot);
+
+		$kriteria = array("harga", "fasilitas", "jarak");
+		$conk = count($kriteria);
+
+		$w = array(59, 53, 40);
+
+		// normalisasi bobot
+		$totalw = 59 + 53 + 40;
+		echo $totalw;
+		for ($i = 0; $i < $conk; $i++) {
+			$wp[$i] = round(($w[$i] / $totalw), 2);
+			echo "<br>";
+			echo $wp[$i];
+		}
+
+		// echo array_sum($har['harga']);
+
+		// var_dump($har['harga']);
+
+		foreach ($criteria as $h) {
+			$c = pow($h["harga"], $wp[0]);
+			echo "<br>";
+			echo $c;
+			echo error_log($c);
+		}
+		echo "<br>";
+		var_dump($criteria);
+		echo "<br>";
+
+
+		$query = $this->db->query('SELECT harga FROM bimbel where harga between ' . $data['max'] . ' AND ' . $data['min'] . '');
+		$r = $query->result_array();
+		return $r;
+		var_dump($query);
+
+		foreach ($query as $r) {
+			var_dump($r['harga']);
+		}
 	}
 
+
+	public function halu()
+	{
+		$this->load->view('v_halu');
+	}
 
 
 

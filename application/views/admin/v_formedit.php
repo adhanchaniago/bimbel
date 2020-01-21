@@ -9,6 +9,7 @@
 
     <form action="<?= site_url('c_edit/editact') ?>" method="POST">
         <?php foreach ($edit->result() as $e) { ?>
+            <input type="hidden" class="form-control" name="idbim" value="<?= $e->idbim ?>">
             <div class="form-group">
                 <label for="">Id Bimbel</label>
                 <input type="text" class="form-control" name="id" value="<?= $e->id_bimbel ?>">
@@ -18,8 +19,12 @@
                 <input type="text" class="form-control" name="nama" value="<?= $e->nama ?>">
             </div>
             <div class="form-group">
-                <label for="">Alamat</label>
+                <label for="">Harga</label>
                 <input type="text" class="form-control" name="alamat" value="<?= $e->alamat ?>">
+            </div>
+            <div class="form-group">
+                <label for="">Harga</label>
+                <input type="text" class="form-control" name="harga" value="<?= $e->harga ?>">
             </div>
             <button class="btn btn-primary" type="submit">Submit</button>
         <?php } ?>

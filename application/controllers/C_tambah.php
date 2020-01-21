@@ -15,8 +15,15 @@ class C_Tambah extends CI_Controller
         redirect('c_tampil');
     }
 
+    // tambah jarak sekolah
+    public function jarakschool()
+    {
+        $this->m_tambah->jarakschool();
+        redirect('c_tampil/sekolah');
+    }
+
     // tambah sekolah
-    public function insertschool()
+    public function addschool()
     {
         $this->m_tambah->addschool();
         redirect('c_tampil/sekolah');
@@ -55,5 +62,12 @@ class C_Tambah extends CI_Controller
     {
         $this->m_tambah->addfoto();
         redirect('c_tampil/foto');
+    }
+
+    // tambah kriteria
+    public function addkriteria()
+    {
+        $this->m_tambah->addkriteria();
+        redirect('c_tampil/kriteria');
     }
 }

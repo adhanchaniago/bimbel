@@ -43,6 +43,9 @@
                     <!-- <li>
                         <a href="<?= site_url('c_tampil/foto') ?>">Foto Bimbel</a>
                     </li> -->
+                    <li>
+                        <a href="<?= site_url('c_tampil/kriteria') ?>">Kriteria</a>
+                    </li>
                 </ul>
             </li>
             <!-- <hr>

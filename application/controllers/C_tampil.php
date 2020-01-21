@@ -34,7 +34,8 @@ class C_Tampil extends CI_Controller
     public function sekolah()
     {
         $data['sekolah'] = [
-            'tampil' => $this->m_tampil->getdata('sekolah')
+            'tampil' => $this->m_tampil->getdata('jarak'),
+            'sekolah' => $this->m_tampil->getdata('sekolah')
         ];
         $this->page('admin/v_sekolah', $data['sekolah']);
     }
@@ -45,7 +46,7 @@ class C_Tampil extends CI_Controller
         ];
         $this->page('admin/v_addschol', $data);
     }
-    public function editjarak($id)
+    public function editsekolah($id)
     {
         // $id = $this->uri->statement(3);
         $data["sekolah"] = [
@@ -59,18 +60,19 @@ class C_Tampil extends CI_Controller
     public function addjarak()
     {
         $data = [
-            'tampil' => $this->m_tampil->getdata('bimbel')
+            'tampil' => $this->m_tampil->getdata('bimbel'),
+            'sekolah' => $this->m_tampil->getdata('sekolah')
         ];
-        $this->page('admin/v_addschol', $data);
+        $this->page('admin/v_addjarak', $data);
     }
-    public function editschol($id)
+    public function editjarak($id)
     {
         // $id = $this->uri->statement(3);
         $data["sekolah"] = [
-            'edit' => $this->m_tampil->getschool($id),
-            'bimbel' => $this->m_tampil->getbimbel()
+            'edit' => $this->m_tampil->getjar($id),
+
         ];
-        $this->page('admin/v_editschol', $data["sekolah"]);
+        $this->page('admin/v_editjarak', $data["sekolah"]);
     }
 
 
@@ -104,6 +106,14 @@ class C_Tampil extends CI_Controller
             'tampil' => $this->m_tampil->getdata('fasilitas')
         ];
         $this->page('admin/addfasbimbel', $data);
+    }
+    public function editfasbimbel($id)
+    {
+        $data = [
+            'get' => $this->m_tampil->getfasbimbel($id),
+            'tampil' => $this->m_tampil->getdata('fasilitas')
+        ];
+        $this->page('admin/v_editget', $data);
     }
 
     // Deskripsi
@@ -171,6 +181,28 @@ class C_Tampil extends CI_Controller
         $this->page('admin/v_editfoto', $data);
     }
 
+    // Kriteria
+    public function kriteria()
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getdata('kriteria')
+        ];
+        $this->page('admin/v_kriteria', $data);
+    }
+    public function addkriteria()
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getdata('bimbel')
+        ];
+        $this->page('admin/v_tambahkriteria', $data);
+    }
+    public function editkriteria($id)
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getkriteria($id)
+        ];
+        $this->page('admin/v_editkriteria', $data);
+    }
 
     public function page($content, $data)
     {

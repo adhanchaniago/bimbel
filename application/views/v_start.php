@@ -14,32 +14,37 @@
     <div class="container">
 
         <!-- Content -->
-        <form action="<?= site_url('welcome/hitung') ?>" method="POST">
+        <form action="<?= site_url('welcome/tampung') ?>" method="POST">
             <div class="form-group">
-                <label for="">Harga Bimbel</label>
-                <input type="number" name="biaya" min="2000000" max="17000000">
+                <label for="">Harga min</label>
+                <input type="number" name="min" class="form-control">
             </div>
             <div class="form-group">
-                <label for="">Id Fasilitas</label>
+                <label for="">Harga max</label>
+                <input type="number" name="max" class="form-control">
+            </div>
+            <!-- <div class="form-group">
+                <label for="">Fasilitas</label>
                 <?php foreach ($tampil as $t) { ?>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input" value="<?= $t['id_fasilitas'] ?>" name="idfas">
+                                <input type="checkbox" name="idfas[]" aria-label="Checkbox for following text input" value="<?= $t['id_fasilitas'] ?>">
                             </div>
                         </div>
-                        <input type="text" class="form-control" aria-label="Text input with checkbox" value="<?= $t['id_fasilitas'] ?>" name="idfas">
+                        <input type="text" class="form-control" aria-label="Text input with checkbox" value="<?= $t['fasilitas'] ?>">
                     </div>
                 <?php } ?>
-            </div>
+            </div> -->
             <div class="form-group">
                 <label for="">Asal Sekolah</label>
                 <select name="sekolah" class="form-control">
                     <?php foreach ($sekolah as $s) { ?>
-                        <option value="<?= $s['sekolah'] ?>"><?= $s['sekolah'] ?></option>
+                        <option value="<?= $s['id_sekolah'] ?>"><?= $s['sekolah'] ?></option>
                     <?php } ?>
                 </select>
             </div>
+            <button class="btn btn-primary">Cari</button>
         </form>
 
         <script src="<?= base_url('aset/js/bootstrap.min.js') ?>"></script>

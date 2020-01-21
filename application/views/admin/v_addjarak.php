@@ -9,10 +9,14 @@
     <br>
     <h3>Tambah Jarak Sekolah</h3>
     <br>
-    <form action="<?= site_url('c_tambah/insertschool') ?>" method="POST">
+    <form action="<?= site_url('c_tambah/jarakschool') ?>" method="POST">
         <div class="form-group">
-            <label for="">Id School</label>
-            <input type="text" class="form-control" name="idsekolah">
+            <label for="">Id Sekolah</label>
+            <select name="id_sekolah" class="form-control">
+                <?php foreach ($sekolah as $b) { ?>
+                    <option value="<?= $b['id_sekolah'] ?>"><?= $b['id_sekolah'] ?></option>
+                <?php } ?>
+            </select>
         </div>
         <div class="form-group">
             <label for="">Id Bimbel</label>
@@ -21,10 +25,6 @@
                     <option value="<?= $b['id_bimbel'] ?>"><?= $b['id_bimbel'] ?></option>
                 <?php } ?>
             </select>
-        </div>
-        <div class="form-group">
-            <label for="">Nama Sekolah</label>
-            <input type="text" class="form-control" name="sekolah">
         </div>
         <div class="form-group">
             <label for="">Jarak</label>

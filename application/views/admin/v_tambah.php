@@ -19,7 +19,10 @@
             <label for="">Alamat</label>
             <input type="text" class="form-control" name="alamat">
         </div>
-
+        <div class="form-group">
+            <label for="">Harga</label>
+            <input type="text" class="form-control" name="harga">
+        </div>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>

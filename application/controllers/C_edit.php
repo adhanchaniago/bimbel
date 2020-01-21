@@ -22,11 +22,25 @@ class C_Edit extends CI_Controller
         redirect('c_tampil/sekolah');
     }
 
+    // edit sekolah
+    public function editjarak()
+    {
+        $this->m_update->updatejaraksekolah();
+        redirect('c_tampil/sekolah');
+    }
+
     // edit fasilitas
     public function editfasilitas()
     {
         $this->m_update->updatefas();
         redirect('c_tampil/fasilitas');
+    }
+
+    // edit fasilitas bimbel
+    public function editfasbimbel()
+    {
+        $this->m_update->updateget();
+        // redirect('c_tampil/fasilitas');
     }
 
     // edit Deskripsi
@@ -41,5 +55,12 @@ class C_Edit extends CI_Controller
     {
         $this->m_update->updatepaket();
         redirect('c_tampil/paket');
+    }
+
+    // edit kriteria
+    public function editkriteria()
+    {
+        $this->m_update->updatekriteria();
+        redirect('c_tampil/kriteria');
     }
 }
