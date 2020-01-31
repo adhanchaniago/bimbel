@@ -5,6 +5,9 @@ class C_Tampil extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('status') != "login") {
+            redirect(base_url("login"));
+        }
         $this->load->model('m_tampil');
     }
 
@@ -203,6 +206,7 @@ class C_Tampil extends CI_Controller
         ];
         $this->page('admin/v_editkriteria', $data);
     }
+
 
     public function page($content, $data)
     {

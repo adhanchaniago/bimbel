@@ -5,16 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<?= base_url('aset/css/bootstrap.min.css') ?>">
     <title>Document</title>
 </head>
 
 <body>
-    <h2>Selamat datang</h2>
-    <form action="" method="post">
-        <label for="username">Masukkan Nama anda</label> <input type="text">
-        <label for="password">Masukkan password anda</label> <input type="text">
-        <button type="submit">login</button> <button>daftar</button>
-    </form>
+    <div class="container">
+        <h2>Daftar admin</h2>
+        <form action="<?= site_url('login/masuk') ?>" method="POST">
+            <div class="form-group">
+                <label for="username">Masukkan nama anda</label>
+                <input type="text" class="form-control" name="user">
+            </div>
+            <div class="form-group">
+                <label for="password">Masukkan password</label>
+                <input type="password" class="form-control" name="pass">
+            </div>
+
+
+            <button onclick="swal.fire()" type="submit" class="btn btn-primary">submit</button>
+        </form>
+    </div>
+
 </body>
+<script src="<?= site_url('bootstrap.min.js') ?>"></script>
+
 
 </html>

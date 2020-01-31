@@ -40,7 +40,7 @@ class C_Edit extends CI_Controller
     public function editfasbimbel()
     {
         $this->m_update->updateget();
-        // redirect('c_tampil/fasilitas');
+        redirect('c_tampil/fasilitas');
     }
 
     // edit Deskripsi

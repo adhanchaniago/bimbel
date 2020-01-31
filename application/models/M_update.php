@@ -78,8 +78,8 @@ class M_Update extends CI_Model
         $data["id"] = $this->input->post('id');
         $data["idfas"] = $this->input->post('idfas');
         $con = count($data["idfas"]);
-        echo $data["id"];
-        echo $con;
+        // echo $data["id"];
+        // echo $con;
         for ($i = 0; $i < $con; $i++) {
             $data["idfas"][$i] . "-";
         }
@@ -94,7 +94,7 @@ class M_Update extends CI_Model
                 'id_bimbel' => $data["id"],
                 'id_fasilitas' => $f[$i]
             );
-            print_r($res);
+            // print_r($res);
             $this->db->where(array('id_bimbel' => $data['id']));
             $this->db->update('getfasilitas', $res);
         }

@@ -37,9 +37,9 @@
                     <li>
                         <a href="<?= site_url('c_tampil/deskripsi') ?>">Deskripsi bimbel</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="<?= site_url('c_tampil/paket') ?>">Paket Bimbel</a>
-                    </li>
+                    </li> -->
                     <!-- <li>
                         <a href="<?= site_url('c_tampil/foto') ?>">Foto Bimbel</a>
                     </li> -->
@@ -53,13 +53,16 @@
                 <a href="<?= site_url('c_admin/notif') ?>">
                     Notification <span class="badge badge-light">2</span>
                 </a>
-            </li>
-        </ul> -->
+            </li>-->
+        </ul>
+        <div class="container">
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="<?= site_url('welcome') ?>" class="text-center btn btn-primary">Review</a>
+                    <a href="<?= site_url('welcome') ?>" class="text-center btn btn-light btn-sm">Review</a>
                 </li>
             </ul>
+        </div>
+
     </nav>
 
 
@@ -79,7 +82,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a href="" class="nav-link">
+                            <a href="<?= site_url('login/logout') ?>" class="nav-link">
                                 logout
                             </a>
                     </ul>

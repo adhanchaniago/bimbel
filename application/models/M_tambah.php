@@ -150,4 +150,21 @@ class M_Tambah extends CI_Model
         $res = $this->db->insert("kriteria", $res);
         return $res;
     }
+
+    // tambah deskripsi
+    public function addesk()
+    {
+        $data["id"] = $this->input->post('id');
+        $data["deskripsi"] = $this->input->post('deskripsi');
+        $data["keterangan"] = $this->input->post('keterangan');
+        $data["maps"] = $this->input->post('maps');
+        $res = array(
+            'id_des' => $data["id"],
+            'judul' => $data["deskripsi"],
+            'keterangan' => $data["keterangan"],
+            'maps' => $data["maps"]
+        );
+        $res = $this->db->insert("deskripsi", $res);
+        return $res;
+    }
 }

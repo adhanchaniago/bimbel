@@ -7,7 +7,7 @@
     </nav>
     <br>
     <h3>Deskripsi Bimbel</h3><br>
-    <a href="<?= site_url('c_tampil/addesk') ?>" class="btn btn-primary">Tambah Fasilitas </a>
+    <a href="<?= site_url('c_tampil/addesk') ?>" class="btn btn-primary">Tambah Deskripsi </a>
     <br><br>
     <table class="table">
         <thead class="thead-light">
@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <button type="button" class="btn btn-danger" style="padding: 3px; margin: 5px;">
-                                    <a href="<?= site_url('c_admin/delschol/') . $b['id_des'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
+                                    <a href="<?= site_url('c_hapus/deldes/') . $b['id_des'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
                                 </button>
                             </div>
                         </div>

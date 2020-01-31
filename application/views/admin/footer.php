@@ -15,6 +15,8 @@
         });
     });
 </script>
+
+<script src="<?= base_url('aset/js/style.js') ?>"></script>
 </body>
 
 </html>

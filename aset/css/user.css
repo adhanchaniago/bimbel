@@ -1,0 +1,26 @@
+body {
+	background-color: #f1fcfc;
+}
+
+/* font-family: 'Yanone Kaffeesatz', sans-serif;
+
+font-family: 'Indie Flower', cursive;
+
+font-family: 'Molle', cursive; */
+
+#content {
+	padding-top: 8%;
+}
+
+h2 {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	size: 22px;
+}
+
+h3 {
+	font-family: 'Courier New', Courier, monospace;
+}
+
+div .row {
+	background-color: #deddfa;
+}

@@ -10,6 +10,14 @@ class M_Tampil extends CI_Model
         return $t;
     }
 
+    // tampil tabel nama bimbel 
+    public function getbim($table)
+    {
+        $res = $this->db->query('SELECT ' . $table . ' FROM bimbel');
+        $t = $res->result_array();
+        return $t;
+    }
+
     // tampil bimbel
     public function getedit($id)
     {
@@ -69,5 +77,11 @@ class M_Tampil extends CI_Model
     public function getkriteria($id)
     {
         return $this->db->get_where('kriteria', array('id_kriteria' => $id));
+    }
+
+    // Login
+    public function cek_login($table, $where)
+    {
+        return $this->db->get_where($table, $where);
     }
 }

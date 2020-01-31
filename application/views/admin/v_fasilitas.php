@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <button type="button" class="btn btn-danger" style="padding: 3px; margin: 5px;">
-                                    <a href="<?= site_url('c_admin/delschol/') . $b['id_fasilitas'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
+                                    <a href="<?= site_url('c_hapus/delfas/') . $b['id_fasilitas'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
                                 </button>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <button type="button" class="btn btn-danger" style="padding: 3px; margin: 5px;">
-                                    <a href="<?= site_url('c_admin/delschol/') . $b['id_bimbel'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
+                                    <a href="<?= site_url('c_hapus/delfasi/') . $b['id_fasilitas'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
                                 </button>
                             </div>
                         </div>
