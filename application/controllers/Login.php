@@ -35,7 +35,11 @@ class Login extends CI_Controller
 
             redirect(base_url("C_tampil"));
         } else {
-            echo "login gagal";
+            echo "<script type='text/javascript'>
+            alert('Username atau password salah');
+            history.back(self);
+            </script>
+            ";
         }
     }
 

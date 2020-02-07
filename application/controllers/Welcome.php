@@ -14,10 +14,94 @@ class Welcome extends CI_Controller
 
 	public function index()
 	{
-		$data = [];
+		$data = [
+			'fas' => $this->m_tampung->fas('fasilitas'),
+			'jar' => $this->m_tampung->jar('sekolah')
+		];
 
 		$this->page('user/harga', $data);
 	}
+	public function home()
+	{
+		$data = [
+			// 'fas' => $this->m_tampung->fas('fasilitas'),
+			// 'jar' => $this->m_tampung->jar('sekolah')
+		];
+
+		$this->page('user/v_halu', $data);
+	}
+
+	public function tampung()
+	{
+		$min = $this->input->post('min');
+		$max = $this->input->post('max');
+		$fasilitas = implode(",", $this->input->post('fasilitas'));
+		$fasfas = explode(",", $fasilitas);
+		$fg = sizeof($fasfas);
+		$jarak = $this->input->post('sekolah');
+
+		$kriteria = array("harga", "fasilitas", "jarak");
+		$conk = count($kriteria);
+
+		$w = array(59, 53, 40);
+
+		// normalisasi bobot
+		$totalw = 59 + 53 + 40;
+		echo $totalw;
+		for ($i = 0; $i < $conk; $i++) {
+			$wp[$i] = round(($w[$i] / $totalw), 4);
+			echo "<br>";
+			echo $wp[$i];
+		}
+
+
+		$harga = $this->m_tampung->harga($min, $max);
+
+		echo "<br>";
+		foreach ($harga as $h) {
+			echo $h['id_bimbel'];
+		}
+
+
+
+		// foreach ($harga as $l) {
+		// 	$n = pow($l['harga'], -$wp[0]);
+		// 	echo "<br>haraga " . $l['nama'] . "=" . $n;
+		// 	echo "<br>";
+
+		// 	foreach ($harga as $h) {
+		// 		$id = $h['id_bimbel'];
+		// 		$getfas = $this->m_tampung->fasact($id);
+		// 		$fasx = sizeof($getfas);
+		// 		// $dif = array_diff($fasfas, $getfas);
+		// 		// print_r($fasfas);
+		// 		// print_r($getfas);
+
+
+		// 		// var_dump($dif);
+		// 		// echo "<br>";
+		// 		// echo $fasx;
+		// 		// echo "<br>";
+		// 		$fx = pow($fasx, $wp[1]);
+		// 		echo "Fasilitas " . $h['nama'] . "=" . $fx;
+		// 		echo "<br>";
+		// 		foreach ($getfas as $f) {
+		// 			$s = $f['id_bimbel'];
+		// 			// $jar = $this->db->query('SELECT jarak FROM jarak WHERE id_sekolah = ' . $jarak . ' AND id_bimbel=' . $s . ' ');
+		// 			// print_r($jar['jarak']);
+		// 			$jar = $this->m_tampung->getjar($jarak, $s);
+		// 			foreach ($jar as $k) {
+		// 				$l = pow($k['jarak'], -$wp[2]);
+		// 				echo "Jarak " . $f['id_bimbel'] . "=" . $l;
+		// 				echo "<br>";
+		// 			}
+		// 		}
+		// 	}
+		// 	$t = $n * $fx * $l;
+		// 	echo "<br>Total =" . $t . "<br>";
+		// }
+	}
+
 
 	public function harga()
 	{
@@ -59,12 +143,12 @@ class Welcome extends CI_Controller
 		];
 		$this->page('user/v_fas', $data);
 	}
-	public function fasact()
-	{
-		$fasx = $this->input->post('fasilitas');
-		$imfas = implode(",", $fasx);
-		$this->m_tampung->fasact();
-	}
+	// public function fasact()
+	// {
+	// 	$fasx = $this->input->post('fasilitas');
+	// 	$imfas = implode(",", $fasx);
+	// 	$this->m_tampung->fasact();
+	// }
 
 	public function jarak()
 	{

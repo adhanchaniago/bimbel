@@ -8,9 +8,7 @@ font-family: 'Indie Flower', cursive;
 
 font-family: 'Molle', cursive; */
 
-#content {
-	padding-top: 8%;
-}
+
 
 h2 {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -21,6 +19,15 @@ h3 {
 	font-family: 'Courier New', Courier, monospace;
 }
 
-div .row {
-	background-color: #deddfa;
+div #row {
+	background: linear-gradient(#deddfa, #f1fcfc);
+}
+
+nav div a.navbar-brand {
+	font-family: 'Indie Flower', cursive;
+	font-size: 40px;
+}
+
+nav div div ul {
+	padding-right: 2%;
 }

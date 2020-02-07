@@ -7,7 +7,7 @@
         </ol>
     </nav>
     <br>
-    <h3>Tambah Jarak Sekolah</h3>
+    <h3>Tambah Sekolah</h3>
     <br>
     <form action="<?= site_url('c_tambah/addschool') ?>" method="POST">
         <div class="form-group">
