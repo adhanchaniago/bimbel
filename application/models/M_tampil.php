@@ -24,6 +24,11 @@ class M_Tampil extends CI_Model
         $res = $this->db->get_where('bimbel', array('idbim' => $id));
         return $res;
     }
+    public function gethar($id)
+    {
+        $res = $this->db->query("SELECT harga FROM bimbel WHERE id_bimbel = '$id'");
+        return $res;
+    }
 
     // tampil sekolah
     public function getschool($id)
@@ -41,6 +46,10 @@ class M_Tampil extends CI_Model
     public function getjar($id)
     {
         return $this->db->get_where('jarak', array('idjar' => $id));
+    }
+    public function getsek($id)
+    {
+        return $this->db->get_where('jarak', array('id_sekolah' => $id));
     }
 
     // tampil fasilitas

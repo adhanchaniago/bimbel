@@ -31,20 +31,9 @@ class Metode extends CI_Controller
             echo $wp[$i];
         }
         $jar = $this->m_tampung->getjar($jarak);
-        foreach ($jar as $j) {
-            echo "<br>";
-            print_r($j);
-            echo "<br>";
-            $harga = $j["id_bimbel"];
-            echo $harga;
-            echo "<br>";
-            $har = $this->m_tampung->har($harga);
-            // echo "<br>";
-            // print_r($har);
-            // foreach ($har as $h) {
-            //     $hr = $this->m_tampung->har($h);
-            //     print_r($hr);
-            // }
+        for ($i = 0; $i < 6; $i++) {
+            $row = mysqli_fetch_row($jar);
+            echo $row[2];
         }
     }
 }
