@@ -18,7 +18,6 @@ class Welcome extends CI_Controller
 			'fas' => $this->m_tampung->fas('fasilitas'),
 			'jar' => $this->m_tampung->jar('sekolah')
 		];
-
 		$this->page('user/harga', $data);
 	}
 	public function home()

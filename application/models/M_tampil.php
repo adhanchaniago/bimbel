@@ -88,9 +88,25 @@ class M_Tampil extends CI_Model
         return $this->db->get_where('kriteria', array('id_kriteria' => $id));
     }
 
+    public function kriteria()
+    {
+        return $this->db->get('kriteria');
+    }
+
     // Login
     public function cek_login($table, $where)
     {
         return $this->db->get_where($table, $where);
+    }
+
+    // metode
+    public function wp()
+    {
+        return $this->db->query("SELECT * FROM vektor ORDER BY hasil DESC");
+    }
+
+    public function saw()
+    {
+        return $this->db->query("SELECT * FROM saw ORDER BY hasil DESC");
     }
 }

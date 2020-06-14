@@ -4,7 +4,7 @@
             <!-- Content -->
             <h2 class="text-center">Kategori Bimbel</h2>
 
-            <form action="<?= site_url('C_wp/wp') ?>" method="POST">
+            <form action="<?= site_url('C_metode') ?>" method="POST">
                 <!-- <div class="form-group">
                     <label for="">Harga min</label>
                     <input type="number" name="min" min="1000000" class="form-control">

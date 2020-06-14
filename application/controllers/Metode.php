@@ -16,7 +16,6 @@ class Metode extends CI_Controller
     {
         $jarak = $this->input->post('sekolah');
 
-
         $kriteria = array("harga", "fasilitas", "jarak");
         $conk = count($kriteria);
 
@@ -30,10 +29,30 @@ class Metode extends CI_Controller
             echo "<br>";
             echo $wp[$i];
         }
+
         $jar = $this->m_tampung->getjar($jarak);
-        for ($i = 0; $i < 6; $i++) {
-            $row = mysqli_fetch_row($jar);
-            echo $row[2];
+        foreach ($jar as $j) {
+            echo "<br>";
+            print_r($j);
+            echo "<br>";
+            $harga = $j["id_bimbel"];
+            echo $harga;
+            echo "<br>";
+            $har = $this->m_tampung->har($harga);
+            // echo "<br>";
+            // print_r($har);
+            // foreach ($har as $h) 
+            //     $hr = $this->m_tampung->har($h);
+            //     print_r($hr);
+            // 
         }
+        print_r($jar['Jarak']);
+        // $hitung = $wp[1] * $jar[3];
+        // echo $hitung;
+        // $hitung=[];
+        // for ($i=0; $i < $conk; $i++) { 
+        //     $hitung = $wp[$i] * $jar[$i];
+        // }
+        // print_r($jar);
     }
 }
