@@ -13,9 +13,6 @@
         <thead class="thead-light">
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Id Fasilitas</th>
-
-
                 <th scope="col">Fasilitas</th>
                 <th scope="col" class="text-center">Action</th>
             </tr>
@@ -25,9 +22,7 @@
             foreach ($tampil as $b) { ?>
                 <tr>
                     <th scope="row"><?= $i++; ?></th>
-                    <td><?= $b['id_fasilitas'] ?></td>
-
-
+                    <!-- <td><?= $b['id_fasilitas'] ?></td> -->
                     <td><?= $b['fasilitas'] ?></td>
                     <td>
                         <div class="row">

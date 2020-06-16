@@ -25,13 +25,14 @@
                 <div class="card mb-3" style="max-width: 540px;">
                   <div class="row no-gutters">
                     <div class="col-md-4">
-                      <img src="..." class="card-img" alt="...">
+                      <img src="<?php echo base_url("aset/img/").$w["foto"] ?>" class="card-img" style="padding-top: 30%">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title"> wp <?= $w["id_bimbel"] ?></h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title"> <?= $w["nama"] ?></h5>
+                        <p class="card-text text-left"><?php echo $w["alamat"]?></p>
+						  <p class="card-text text-left"><?php echo "Rp, " . $w["harga"] ?></p>
+                        <a href="<?php echo base_url('c_metode/detail/').$w["id_bimbel"] ?>"><button class="btn btn-primary btn-sm">Read More</button></a>
                       </div>
                     </div>
                   </div>
@@ -46,13 +47,14 @@
                 <div class="card mb-3" style="max-width: 540px;">
                   <div class="row no-gutters">
                     <div class="col-md-4">
-                      <img src="..." class="card-img" alt="...">
+                      <img src="<?php echo base_url("aset/img/").$w["foto"] ?>" class="card-img" style="padding-top: 30%">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title"> saw <?php echo $s["id_bimbel"] ?></h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title"><?php echo $s["nama"] ?></h5>
+                        <p class="card-text text-left"><?php echo $s["alamat"]?></p>
+						  <p class="card-text text-left"><?php echo "Rp, " .$s["harga"] ?></p>
+                        <a href="<?php echo base_url('c_metode/detail/').$s["id_bimbel"] ?>"><button class="btn btn-primary btn-sm">Read More</button></a>
                       </div>
                     </div>
                   </div>

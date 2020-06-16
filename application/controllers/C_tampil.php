@@ -129,7 +129,9 @@ class C_Tampil extends CI_Controller
     }
     public function addesk()
     {
-        $data = [];
+        $data = [
+        	'idbim' => $this->m_tampil->getdata('bimbel')
+		];
         $this->page('admin/adddesk', $data);
     }
     public function editdesk($id)
@@ -206,6 +208,8 @@ class C_Tampil extends CI_Controller
         ];
         $this->page('admin/v_editkriteria', $data);
     }
+
+    
 
 
     public function page($content, $data)

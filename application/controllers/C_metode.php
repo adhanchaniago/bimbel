@@ -31,6 +31,15 @@ class C_metode extends CI_Controller
 		$this->page('user/v_halu',$data["data"]);
 	}
 
+	public function detail($id)
+    {
+        $data = [
+            'detail' => $this->m_tampil->detail($id),
+            'fasilitas' => $this->m_tampil->getfasbimbel($id)
+        ];
+        $this->page('user/detail', $data);
+    }
+
 	public function page($content, $data)
 	{
 		$this->load->view('user/header');

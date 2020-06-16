@@ -102,11 +102,16 @@ class M_Tampil extends CI_Model
     // metode
     public function wp()
     {
-        return $this->db->query("SELECT * FROM vektor ORDER BY hasil DESC");
+        return $this->db->query("SELECT vektor.id_bimbel, vektor.hasil, bimbel.nama, bimbel.alamat, bimbel.harga, deskripsi.judul, deskripsi.keterangan,deskripsi.maps, deskripsi.foto FROM vektor JOIN bimbel on vektor.id_bimbel = bimbel.id_bimbel JOIN deskripsi on bimbel.id_bimbel = deskripsi.id_bimbel ORDER BY hasil DESC");
     }
 
     public function saw()
     {
-        return $this->db->query("SELECT * FROM saw ORDER BY hasil DESC");
+        return $this->db->query("SELECT saw.id_bimbel, saw.hasil, bimbel.nama, bimbel.alamat, bimbel.harga, deskripsi.judul, deskripsi.keterangan,deskripsi.maps, deskripsi.foto FROM saw JOIN bimbel on saw.id_bimbel = bimbel.id_bimbel JOIN deskripsi on bimbel.id_bimbel = deskripsi.id_bimbel  ORDER BY hasil DESC");
+    }
+
+    public function detail($id)
+    {
+        return $this->db->query("SELECT bimbel.nama, bimbel.alamat, bimbel.harga, deskripsi.judul, deskripsi.keterangan,deskripsi.maps, deskripsi.foto FROM bimbel JOIN deskripsi on bimbel.id_bimbel = deskripsi.id_bimbel WHERE bimbel.id_bimbel ='$id'  ");
     }
 }

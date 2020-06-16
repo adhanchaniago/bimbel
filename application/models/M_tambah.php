@@ -59,22 +59,18 @@ class M_Tambah extends CI_Model
     //tambah foto
     public function addfoto()
     {
-        $id = $this->input->post('id_bimbel');
-        $foto = $_FILES['poto']['name'];
-        $tmp = $_FILES['poto']['tmp_name'];
+        $foto = $_FILES['foto']['name'];
+        $tmp = $_FILES['foto']['tmp_name'];
         $fotobaru = date('dmYHis') . $foto;
 
         $path = "aset/img/" . $fotobaru;
 
         if (move_uploaded_file($tmp, $path)) {
-            $res = array(
-                "id_foto" => $id,
-                "foto" => $fotobaru
-            );
-
-            $res = $this->db->insert("foto", $res);
+            $res = $fotobaru;
             return $res;
         }
+
+        return "logo.png";
     }
 
 
@@ -158,11 +154,13 @@ class M_Tambah extends CI_Model
         $data["deskripsi"] = $this->input->post('deskripsi');
         $data["keterangan"] = $this->input->post('keterangan');
         $data["maps"] = $this->input->post('maps');
+        $data["foto"]    = $this->addfoto();
         $res = array(
-            'id_des' => $data["id"],
+            'id_bimbel' => $data["id"],
             'judul' => $data["deskripsi"],
             'keterangan' => $data["keterangan"],
-            'maps' => $data["maps"]
+            'maps' => $data["maps"],
+			'foto' => $data["foto"]
         );
         $res = $this->db->insert("deskripsi", $res);
         return $res;
