@@ -22,9 +22,9 @@
                     Bimbel
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
+                   <!--  <li>
                         <a href="<?= site_url('c_tampil/tambah') ?>">Tambah Bimbel</a>
-                    </li>
+                    </li> -->
                     <!-- <li>
                         <a href="<?= site_url('c_tampil/foto') ?>">Foto Bimbel</a>
                     </li> -->

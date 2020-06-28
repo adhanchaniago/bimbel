@@ -21,7 +21,7 @@ class M_Tampil extends CI_Model
     // tampil bimbel
     public function getedit($id)
     {
-        $res = $this->db->get_where('bimbel', array('idbim' => $id));
+        $res = $this->db->get_where('bimbel', array('id' => $id));
         return $res;
     }
     public function gethar($id)
@@ -67,7 +67,7 @@ class M_Tampil extends CI_Model
     // tampil Deskripsi
     public function getdes($id)
     {
-        return $this->db->get_where('deskripsi', array('id_des' => $id));
+        return $this->db->get_where('deskripsi', array('iddes' => $id));
     }
 
     // tampil Paket
@@ -112,6 +112,6 @@ class M_Tampil extends CI_Model
 
     public function detail($id)
     {
-        return $this->db->query("SELECT bimbel.nama, bimbel.alamat, bimbel.harga, deskripsi.judul, deskripsi.keterangan,deskripsi.maps, deskripsi.foto FROM bimbel JOIN deskripsi on bimbel.id_bimbel = deskripsi.id_bimbel WHERE bimbel.id_bimbel ='$id'  ");
+        return $this->db->query("SELECT bimbel.nama, bimbel.alamat, bimbel.harga, deskripsi.judul, deskripsi.keterangan, deskripsi.site,deskripsi.no,deskripsi.email, deskripsi.maps, deskripsi.foto FROM bimbel JOIN deskripsi on bimbel.id_bimbel = deskripsi.id_bimbel WHERE bimbel.id_bimbel ='$id'  ");
     }
 }

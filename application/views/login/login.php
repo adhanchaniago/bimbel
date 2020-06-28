@@ -10,23 +10,24 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2>Daftar admin</h2>
+    <div class="container" style="padding-top: 10%">
         <form action="<?= site_url('login/masuk') ?>" method="POST">
-            <div class="form-group">
-                <label for="username">Masukkan nama anda</label>
-                <input type="text" class="form-control" name="user">
+            <div class="row">
+                <div class="col-sm-4 offset-sm-4">
+                    <h2 class="text-center">Daftar admin</h2>
+                    <div class="form-group">
+                        <label for="username">Masukkan nama anda</label>
+                        <input type="text" class="form-control" name="user">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Masukkan password</label>
+                        <input type="password" class="form-control" name="pass">
+                    </div>
+                    <button onclick="swal.fire()" type="submit" class="btn btn-primary">submit</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="password">Masukkan password</label>
-                <input type="password" class="form-control" name="pass">
-            </div>
-
-
-            <button onclick="swal.fire()" type="submit" class="btn btn-primary">submit</button>
         </form>
     </div>
-
 </body>
 <script src="<?= site_url('bootstrap.min.js') ?>"></script>
 

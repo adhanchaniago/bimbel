@@ -1,4 +1,4 @@
-<div class="container">
+<br><div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= site_url('c_tampil') ?>">Home</a></li>
@@ -9,13 +9,16 @@
     <h3>Deskripsi Bimbel</h3><br>
     <a href="<?= site_url('c_tampil/addesk') ?>" class="btn btn-primary">Tambah Deskripsi </a>
     <br><br>
-    <table class="table">
+    <table class="table-responsive">
         <thead class="thead-light">
             <tr>
                 <th scope="col">No</th>
                 <th scope="col">Id Bimbel</th>
                 <th scope="col">Judul</th>
                 <th scope="col">Keterangan</th>
+                <th scope="col">Situs</th>
+                <th scope="col">No Telpon</th>
+                <th scope="col">Email</th>
                 <th scope="col">Maps</th>
                 <th scope="col">Foto</th>
                 <th scope="col" class="text-center">Action</th>
@@ -29,6 +32,9 @@
                     <td><?= $b['id_bimbel'] ?></td>
                     <td><?= $b['judul'] ?></td>
                     <td><?= $b['keterangan'] ?></td>
+                    <td><?= $b['site'] ?></td>
+                    <td><?= $b['no'] ?></td>
+                    <td><?= $b['email'] ?></td>
                     <td><?= $b['maps'] ?></td>
                     <td><img src="<?= base_url('aset/img/').$b['foto']  ?>"></td>
                     <td>

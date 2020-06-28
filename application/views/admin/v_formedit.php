@@ -9,7 +9,7 @@
 
     <form action="<?= site_url('c_edit/editact') ?>" method="POST">
         <?php foreach ($edit->result() as $e) { ?>
-            <input type="hidden" class="form-control" name="idbim" value="<?= $e->idbim ?>">
+            <input type="hidden" class="form-control" name="id" value="<?= $e->id ?>">
             <div class="form-group">
                 <label for="">Id Bimbel</label>
                 <input type="text" class="form-control" name="id" value="<?= $e->id_bimbel ?>">

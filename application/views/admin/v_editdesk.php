@@ -1,4 +1,4 @@
-<div class="container">
+<br><div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= site_url('c_tampil') ?>">Home</a></li>
@@ -13,7 +13,7 @@
         <?php foreach ($desk->result() as $d) { ?>
             <div class="form-group">
                 <label for="">Id Deskripsi</label>
-                <input type="text" class="form-control" name="id" value="<?= $d->id_des ?>">
+                <input type="text" class="form-control" name="id" value="<?= $d->iddes ?>">
             </div>
             <div class="form-group">
                 <label for="">Judul</label>
@@ -23,10 +23,26 @@
                 <label for="">Keterangan</label>
                 <textarea name="keterangan" id="" cols="10" rows="10" class="form-control"><?= $d->keterangan ?></textarea>
             </div>
-            <div class="form-group">
-                <label for="">Maps</label>
-                <input type="text" class="form-control" name="maps" value="<?= $d->maps ?>">
-            </div>
+             <div class="form-group">
+            <label for="">Situs</label>
+            <input type="text" name="situs" id="" class="form-control" value="<?= $d->site ?>"></input>
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" name="email" id="" cols="10" rows="10" class="form-control" value="<?= $d->email ?>"></input>
+        </div>
+        <div class="form-group">
+            <label for="">Telpon</label>
+            <input type="text" name="telpon" id="" cols="10" rows="10" class="form-control" value="<?= $d->no ?>"></input>
+        </div>
+        <div class="form-group">
+            <label for="">Maps</label>
+            <input type="text" class="form-control" name="maps" value="<?= $d->maps ?>">
+        </div>
+        <div class="form-group">
+            <label for="">Foto</label>
+            <input type="file" class="form-control" name="foto" value="<?= $d->foto ?>">
+        </div>
         <?php } ?>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
