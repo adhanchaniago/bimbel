@@ -6,7 +6,7 @@
         </ol>
     </nav>
     <br>
-    <h3>Fasilitas Bimbel</h3><br>
+    <h3>Fasilitas </h3><br>
     <a href="<?= site_url('c_tampil/addfas') ?>" class="btn btn-primary">Tambah Fasilitas </a>
     <br><br>
     <table class="table">
