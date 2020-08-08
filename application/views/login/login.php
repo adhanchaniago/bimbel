@@ -14,7 +14,7 @@
         <form action="<?= site_url('login/masuk') ?>" method="POST">
             <div class="row">
                 <div class="col-sm-4 offset-sm-4">
-                    <h2 class="text-center">Daftar admin</h2>
+                    <h2 class="text-center">login admin</h2>
                     <div class="form-group">
                         <label for="username">Masukkan nama anda</label>
                         <input type="text" class="form-control" name="user">

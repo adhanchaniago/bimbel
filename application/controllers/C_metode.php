@@ -14,9 +14,12 @@ class C_metode extends CI_Controller
 		$this->load->helper('url');
 	}
 
+
+
 	public function index()
 	{
 		$sekola = $this->input->post('sekolah');
+
 		$this->m_metode->wp($sekola);
 		$this->m_metode->saw($sekola);
 		$this->metode();

@@ -6,6 +6,7 @@
         </ol>
     </nav>
     <br>
+    <h3>Daftar Sekolah</h3>
     <a href="<?= site_url('c_tampil/addschool') ?>"><button class="btn btn-primary">Tambah Sekolah</button></a>
     <br>
     <br>
@@ -50,6 +51,7 @@
     <br>
     <hr>
     <br>
+    <h3>Jarak Sekolah</h3>
     <a href="<?= site_url('c_tampil/addjarak') ?>"><button class="btn btn-primary">Tambah jarak Sekolah</button></a>
     <br>
     <br>

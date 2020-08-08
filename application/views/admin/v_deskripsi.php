@@ -41,12 +41,12 @@
                         <div class="row">
                             <div class="col-sm-3 offset-sm-3">
                                 <button type="button" class="btn btn-info btn-sm" style="padding: 3px; margin: 5px;">
-                                    <a href="<?= site_url('c_tampil/editdesk/') . $b['iddes'] ?>"><i class="fa fa-edit fa-2x"></i></a>
+                                    <a href="<?= site_url('c_tampil/editdesk/') . $b['id'] ?>"><i class="fa fa-edit fa-2x"></i></a>
                                 </button>
                             </div>
                             <div class="col-sm-6">
                                 <button type="button" class="btn btn-danger" style="padding: 3px; margin: 5px;">
-                                    <a href="<?= site_url('c_hapus/deldes/') . $b['iddes'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
+                                    <a href="<?= site_url('c_hapus/deldes/') . $b['id'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
                                 </button>
                             </div>
                         </div>

@@ -18,7 +18,7 @@
             <hr>
             <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-copy"></i>
+                    <i class="fa fa-building" aria-hidden="true"></i>
                     Bimbel
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">

@@ -2,7 +2,7 @@
     <div class="row" id="row">
         <div class="col-sm-6 offset-sm-3">
             <!-- Content -->
-            <h2 class="text-center">Kategori Bimbel</h2>
+            <h2 class="text-center" style="padding-top: 10%">Pilih Sekolah</h2>
 
             <form action="<?= site_url('C_metode') ?>" method="POST">
                 <!-- <div class="form-group">

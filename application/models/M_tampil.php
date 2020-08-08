@@ -102,7 +102,7 @@ class M_Tampil extends CI_Model
     // metode
     public function wp()
     {
-        return $this->db->query("SELECT vektor.id_bimbel, vektor.hasil, bimbel.nama, bimbel.alamat, bimbel.harga, deskripsi.judul, deskripsi.keterangan,deskripsi.maps, deskripsi.foto FROM vektor JOIN bimbel on vektor.id_bimbel = bimbel.id_bimbel JOIN deskripsi on bimbel.id_bimbel = deskripsi.id_bimbel ORDER BY hasil DESC");
+        return $this->db->query("SELECT wp.id_bimbel, wp.hasil, bimbel.nama, bimbel.alamat, bimbel.harga, deskripsi.judul, deskripsi.keterangan,deskripsi.maps, deskripsi.foto FROM wp JOIN bimbel on wp.id_bimbel = bimbel.id_bimbel JOIN deskripsi on bimbel.id_bimbel = deskripsi.id_bimbel ORDER BY hasil DESC");
     }
 
     public function saw()
