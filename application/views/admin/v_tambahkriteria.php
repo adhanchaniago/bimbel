@@ -10,14 +10,17 @@
         <div class="form-group">
             <label for="">Kriteria</label>
             <input type="text" class="form-control" name="kriteria">
+            <small><?= form_error('kriteria') ?></small>
         </div>
         <div class="form-group">
             <label for="">Bobot</label>
             <input type="text" class="form-control" name="bobot">
+            <small><?= form_error('bobot') ?></small>
         </div>
         <div class="form-group">
             <label for="">Keterangan</label>
             <input type="text" class="form-control" name="keterangan">
+            <small><?= form_error('keterangan') ?></small>
         </div>
 
         <button class="btn btn-primary" type="submit">Submit</button>

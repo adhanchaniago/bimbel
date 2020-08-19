@@ -1,7 +1,7 @@
 <div class="container" id="content">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="<?= base_url() ?>">Golek</a>
+            <h1><a class="navbar-brand" href="<?= base_url() ?>">Golek</a></h1>
         </div>
     </nav>
     <div class="container">

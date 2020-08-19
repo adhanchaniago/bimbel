@@ -2,11 +2,12 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class M_Tambah extends CI_Model
 {
+// Admin
 
-    //tambah bimbel
-    public function insert()
+    // Bimbel
+    public function bimbel()
     {
-        $data["id"] = $this->input->post('id');
+    	$data["id"] = $this->input->post('id');
         $data["nama"] = $this->input->post('nama');
         $data["alamat"] = $this->input->post('alamat');
         $data["harga"] = $this->input->post('harga');
@@ -17,44 +18,35 @@ class M_Tambah extends CI_Model
             'harga' => $data["harga"]
         );
 
-        $res = $this->db->insert("bimbel", $res);
-        return $res;
+        $this->db->insert("bimbel",$res);
+
+        redirect(base_url('c_tampil'));
     }
 
-    // Tambah jarak Sekolah
-    public function jarakschool()
+    // Deskripsi
+    public function deskripsi()
     {
-        $data["id_sekolah"] = $this->input->post('id_sekolah');
-        $data["id_bimbel"] = $this->input->post('id_bimbel');
-
-        $data["jarak"] = $this->input->post('jarak');
-
+    	$data["id"] = $this->input->post('id');
+        $data["deskripsi"] = $this->input->post('deskripsi');
+        $data["keterangan"] = $this->input->post('keterangan');
+        $data["site"] = $this->input->post('situs');
+        $data["no"] = $this->input->post('telpon');
+        $data["email"] = $this->input->post('email');
+        $data["maps"] = $this->input->post('maps');
+        $data["foto"]    = $this->addfoto();
         $res = array(
-            'id_sekolah' => $data["id_sekolah"],
-            'id_bimbel' => $data["id_bimbel"],
-
-            'jarak' => $data["jarak"]
+            'id_bimbel' => $data["id"],
+            'judul' => $data["deskripsi"],
+            'keterangan' => $data["keterangan"],
+            'site' => $data["site"],
+            'no' => $data["no"],
+            'email' => $data["email"],
+            'maps' => $data["maps"],
+			'foto' => $data["foto"]
         );
-        $res = $this->db->insert("jarak", $res);
-        return $res;
+        $this->db->insert("deskripsi",$res);
+        redirect(base_url('c_tampil/deskripsi'));
     }
-
-    // Tambah jarak Sekolah
-    public function addschool()
-    {
-        $data["idsekolah"] = $this->input->post('idsekolah');
-        $data["sekolah"] = $this->input->post('sekolah');
-
-
-        $res = array(
-            'id_sekolah' => $data["idsekolah"],
-            'sekolah' => $data["sekolah"],
-
-        );
-        $res = $this->db->insert("sekolah", $res);
-        return $res;
-    }
-
 
     //tambah foto
     public function addfoto()
@@ -72,9 +64,40 @@ class M_Tambah extends CI_Model
 
         return "logo.png";
     }
+    
+    // Sekolah
+    public function addschool()
+    {
+        $data["idsekolah"] = $this->input->post('idsekolah');
+        $data["sekolah"] = $this->input->post('sekolah');
 
 
-    // tambah fasilitas
+        $res = array(
+            'id_sekolah' => $data["idsekolah"],
+            'sekolah' => $data["sekolah"],
+
+        );
+        $this->db->insert("sekolah",$res);
+        redirect(base_url('c_tampil/sekolah'));
+    }
+
+    // Jarak Sekolah
+    public function jarakschool()
+    {
+        $data["id_sekolah"] = $this->input->post('id_sekolah');
+        $data["id_bimbel"] = $this->input->post('id_bimbel');
+        $data["jarak"] = $this->input->post('jarak');
+
+        $res = array(
+            'id_sekolah' => $data["id_sekolah"],
+            'id_bimbel' => $data["id_bimbel"],
+            'jarak' => $data["jarak"]
+        );
+        $this->db->insert("jarak", $res);
+        redirect(base_url('c_tampil/sekolah'));
+    }
+
+    // Fasilitas
     public function addfasilitas()
     {
         $data["idfasilitas"] = $this->input->post('idfasilitas');
@@ -84,11 +107,11 @@ class M_Tambah extends CI_Model
             'id_fasilitas' => $data["idfasilitas"],
             'fasilitas' => $data["fasilitas"]
         );
-        $res = $this->db->insert("fasilitas", $res);
-        return $res;
+        $this->db->insert("fasilitas", $res);
+        redirect(base_url('c_tampil/fasilitas'));
     }
 
-    // tambah fasilitas
+    // Get Falitas
     public function addfasilitasbimbel()
     {
         $data["idbimbel"] = $this->input->post('idbimbel');
@@ -111,28 +134,11 @@ class M_Tambah extends CI_Model
             );
 
 
-            $res = $this->db->insert("getfasilitas", $res);
+            $this->db->insert("getfasilitas", $res);
         }
-
-        return $res;
+        redirect(base_url('c_tampil/fasilitas'));
     }
-
-    // tambah Paket
-    public function addpaket()
-    {
-        $data["id"] = $this->input->post('id');
-        $data["deskripsi"] = $this->input->post('deskripsi');
-        $data["harga"] = $this->input->post('harga');
-        $res = array(
-            'id_paket' => $data["id"],
-            'deskripsi' => $data["deskripsi"],
-            'harga' => $data["harga"]
-        );
-        $res = $this->db->insert("paket", $res);
-        return $res;
-    }
-
-    // tambah Kriteria
+    // Kriteria
     public function addkriteria()
     {
         $data["kriteria"] = $this->input->post('kriteria');
@@ -143,26 +149,8 @@ class M_Tambah extends CI_Model
             'bobot' => $data["bobot"],
             'keterangan' => $data["keterangan"]
         );
-        $res = $this->db->insert("kriteria", $res);
-        return $res;
+        $this->db->insert("kriteria", $res);
+        redirect(base_url('c_tampil/kriteria'));
     }
-
-    // tambah deskripsi
-    public function addesk()
-    {
-        $data["id"] = $this->input->post('id');
-        $data["deskripsi"] = $this->input->post('deskripsi');
-        $data["keterangan"] = $this->input->post('keterangan');
-        $data["maps"] = $this->input->post('maps');
-        $data["foto"]    = $this->addfoto();
-        $res = array(
-            'id_bimbel' => $data["id"],
-            'judul' => $data["deskripsi"],
-            'keterangan' => $data["keterangan"],
-            'maps' => $data["maps"],
-			'foto' => $data["foto"]
-        );
-        $res = $this->db->insert("deskripsi", $res);
-        return $res;
-    }
+// End Admin
 }

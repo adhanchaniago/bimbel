@@ -11,24 +11,25 @@
     <br>
     <form action="<?= site_url('c_tambah/jarakschool') ?>" method="POST">
         <div class="form-group">
-            <label for="">Id Sekolah</label>
+            <label for="">Sekolah</label>
             <select name="id_sekolah" class="form-control">
                 <?php foreach ($sekolah as $b) { ?>
-                    <option value="<?= $b['id_sekolah'] ?>"><?= $b['id_sekolah'] ?></option>
+                    <option value="<?= $b['id_sekolah'] ?>"><?= $b['sekolah'] ?></option>
                 <?php } ?>
             </select>
         </div>
         <div class="form-group">
-            <label for="">Id Bimbel</label>
+            <label for="">Bimbel</label>
             <select name="id_bimbel" class="form-control">
                 <?php foreach ($tampil as $b) { ?>
-                    <option value="<?= $b['id_bimbel'] ?>"><?= $b['id_bimbel'] ?></option>
+                    <option value="<?= $b['id_bimbel'] ?>"><?= $b['nama'] ?></option>
                 <?php } ?>
             </select>
         </div>
         <div class="form-group">
             <label for="">Jarak</label>
-            <input type="number" class="form-control" name="jarak">
+            <input type="text" class="form-control" name="jarak">
+            <small><?php echo form_error('jarak'); ?></small>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

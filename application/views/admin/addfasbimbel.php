@@ -11,15 +11,15 @@
     <br>
     <form action="<?= site_url('c_tambah/addfasbimbel') ?>" method="POST">
         <div class="form-group">
-            <label for="">Id Bimbel</label>
+            <label for="">Bimbel</label>
             <select name="idbimbel" class="form-control">
                 <?php foreach ($bimbel as $b) { ?>
-                    <option value="<?= $b['id_bimbel'] ?>"> <?= $b['id_bimbel'] ?></option>
+                    <option value="<?= $b['id_bimbel'] ?>"> <?= $b['nama'] ?></option>
                 <?php } ?>
             </select>
         </div>
         <div class="form-group">
-            <label for="">Id Fasilitas</label>
+            <label for="">Fasilitas</label>
             <?php foreach ($tampil as $t) { ?>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -30,6 +30,7 @@
                     <input type="text" class="form-control" aria-label="Text input with checkbox" value="<?= $t['fasilitas'] ?>">
                 </div>
             <?php } ?>
+            <small><?= form_error('idfas') ?></small>
         </div>
 
         <button class="btn btn-primary" type="submit">Submit</button>

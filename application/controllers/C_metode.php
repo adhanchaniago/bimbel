@@ -18,15 +18,18 @@ class C_metode extends CI_Controller
 
 	public function index()
 	{
-		$sekola = $this->input->post('sekolah');
+		$data_session = array(
+                'sekolah' => $this->input->post('sekolah'),
+            );
+        $this->session->set_userdata($data_session);
 
-		$this->m_metode->wp($sekola);
-		$this->m_metode->saw($sekola);
 		$this->metode();
 	}
 
 	public function metode()
 	{
+		$this->m_metode->wp();
+		$this->m_metode->saw();
 		$data["data"]=[
 			'wp' => $this->m_tampil->wp(),
 			'saw' => $this->m_tampil->saw()

@@ -8,47 +8,33 @@ class C_Hapus extends CI_Controller
         $this->load->model('m_delete');
     }
 
-    public function delbim()
+// Admin
+    // Bimbel
+    public function delbim($where)
     {
-        // $id = $this->uri->statment(2);
-        $this->m_delete->delbim();
-        redirect('c_tampil');
+        $this->m_delete->delwhere('bimbel',$where);
+        redirect(base_url('c_tampil/index'));    
+    }
+    // Deskripsi
+
+    // Sekolah
+
+    // Jarak Sekolah
+    public function deljarak($where)
+    {
+        $this->m_delete->delwhere('jarak',$where);
+        redirect(base_url('c_tampil/sekolah'));    
     }
 
-    public function delschol()
-    {
-        // $id = $this->uri->statment(2);
-        $this->m_delete->delsekolah();
-        redirect('c_tampil/sekolah');
-    }
+    // Fasilitas
 
-    public function deljarak()
-    {
-        // $id = $this->uri->statment(2);
-        $this->m_delete->deljar();
-        redirect('c_tampil/sekolah');
-    }
+    // Get Falitas
 
-    public function delfas()
+    // Kriteria
+    public function delkri($where)
     {
-        $this->m_delete->delfas();
-        redirect('c_tampil/fasilitas');
+        $this->m_delete->delwhere('kriteria',$where);
+        redirect(base_url('c_tampil/kriteria'));    
     }
-    public function delfasi()
-    {
-        $this->m_delete->delfasi();
-        redirect('c_tampil/fasilitas');
-    }
-
-    public function deldes()
-    {
-        $this->m_delete->deldes();
-        redirect('c_tampil/deskripsi');
-    }
-
-    public function delkri()
-    {
-        $this->m_delete->delkri();
-        redirect('c_tampil/kriteria');
-    }
+// End Admin
 }

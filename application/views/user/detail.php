@@ -11,8 +11,7 @@
         		<div class="card">
 				  <div class="card-body">
 				  	<?php foreach ($detail->result_array() as $d) { ?>
-				    <h5 class="card-title"><?php echo $d["nama"] ?></h5><hr>
-				    <h6 class="card-subtitle mb-2 text-muted"><?php echo $d["judul"] ?></h6>
+				    <h5 class="card-tittle mb-2 text-muted"><?php echo $d["judul"] ?></h5><hr>
 				    <br>
 				    <div class="row">
 					    <div class="col-sm-6">

@@ -7,18 +7,22 @@
         </ol>
     </nav>
     <form action="<?= site_url('c_edit/editkriteria') ?>" method="POST">
-        <?php foreach ($tampil->result() as $t) { ?>
+        <?php foreach ($tampil as $t) { ?>
+            <input type="hidden" name="id" value="<?= $t['id']?>">
             <div class="form-group">
                 <label for="">Kriteria</label>
-                <input type="text" class="form-control" name="kriteria" value="<?= $t->kriteria ?>">
+                <input type="text" class="form-control" name="kriteria" value="<?= $t['kriteria'] ?>">
+                <small><?= form_error('kriteria')?></small>
             </div>
             <div class="form-group">
                 <label for="">Bobot</label>
-                <input type="text" class="form-control" name="bobot" value="<?= $t->bobot ?>">
+                <input type="text" class="form-control" name="bobot" value="<?= $t['bobot'] ?>">
+                <small><?= form_error('bobot')?></small>
             </div>
             <div class="form-group">
                 <label for="">Keterangan</label>
-                <input type="text" class="form-control" name="keterangan" value="<?= $t->keterangan ?>">
+                <input type="text" class="form-control" name="keterangan" value="<?= $t['keterangan'] ?>">
+                <small><?= form_error('keterangan')?></small>
             </div>
         <?php } ?>
         <button class="btn btn-primary" type="submit">Submit</button>

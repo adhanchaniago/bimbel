@@ -13,7 +13,7 @@
         <thead class="thead-light">
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Id Bimbel</th>
+                <th scope="col">Bimbel</th>
                 <th scope="col">Judul</th>
                 <th scope="col">Keterangan</th>
                 <th scope="col">Situs</th>
@@ -29,7 +29,7 @@
             foreach ($tampil as $b) { ?>
                 <tr>
                     <th scope="row"><?= $i++; ?></th>
-                    <td><?= $b['id_bimbel'] ?></td>
+                    <td><?= $b['nama'] ?></td>
                     <td><?= $b['judul'] ?></td>
                     <td><?= $b['keterangan'] ?></td>
                     <td><?= $b['site'] ?></td>

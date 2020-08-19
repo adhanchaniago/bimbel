@@ -1,32 +1,14 @@
-body {
-	background-color: #f1fcfc;
-}
-
-/* font-family: 'Yanone Kaffeesatz', sans-serif;
-
-font-family: 'Indie Flower', cursive;
-
-font-family: 'Molle', cursive; */
-
-
-
 h2 {
-	font-family: 'Yanone Kaffeesatz', sans-serif;
-	size: 22px;
+	font-family: 'Merriweather', serif;
 }
 
 h3 {
-	font-family: 'Courier New', Courier, monospace;
+	font-family: 'Dosis', sans-serif;
 }
 
-div #row {
-	background: linear-gradient(#deddfa, #f1fcfc);
-}
 
 nav div a.navbar-brand {
-	font-family: 'Indie Flower', cursive;
-	font-size: 40px;
-}
+	font-family: 'Cinzel', serif;}
 
 nav div div ul {
 	padding-right: 2%;

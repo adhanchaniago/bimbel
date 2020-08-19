@@ -15,7 +15,6 @@
             <thead class="thead-light">
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Id Sekolah</th>
                     <th scope="col">Nama sekolah</th>
                     <th scope="col" class="text-center">Action</th>
                 </tr>
@@ -26,19 +25,18 @@
                     <tr>
                         <th scope="row"><?= $i++ ?></th>
                         <td hidden><?= $t['idsek'] ?></td>
-                        <td><?= $t['id_sekolah'] ?></td>
                         <td><?= $t['sekolah'] ?></td>
 
                         <td>
                             <div class="row">
                                 <div class="col-sm-3 offset-sm-3">
                                     <button type="button" class="btn btn-info btn-sm" style="padding: 3px; margin: 5px;">
-                                        <a href="<?= site_url('c_tampil/editsekolah/') . $t['idsek'] ?>"><i class="fa fa-edit fa-2x"></i></a>
+                                        <a href="<?= site_url('c_tampil/editsekolah/') . $t['id'] ?>"><i class="fa fa-edit fa-2x"></i></a>
                                     </button>
                                 </div>
                                 <div class="col-sm-6">
                                     <button type="button" class="btn btn-danger" style="padding: 3px; margin: 5px;">
-                                        <a href="<?= site_url('c_hapus/delschol/') . $t['idsek'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
+                                        <a href="<?= site_url('c_hapus/delschol/') . $t['id'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
                                     </button>
                                 </div>
                             </div>
@@ -60,8 +58,8 @@
             <thead class="thead-light">
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Id Sekolah</th>
-                    <th scope="col">Id Bimbel</th>
+                    <th scope="col">Sekolah</th>
+                    <th scope="col">Bimbel</th>
                     <th scope="col">Jarak</th>
                     <th scope="col" class="text-center">Action</th>
                 </tr>
@@ -72,19 +70,19 @@
                     <tr>
                         <th scope="row"><?= $i++ ?></th>
                         <td hidden><?= $j['idjar'] ?></td>
-                        <td><?= $j['id_sekolah'] ?></td>
-                        <td><?= $j['id_bimbel'] ?></td>
+                        <td><?= $j['sekolah'] ?></td>
+                        <td><?= $j['nama'] ?></td>
                         <td><?= $j['jarak'] ?></td>
                         <td>
                             <div class="row">
                                 <div class="col-sm-3 offset-sm-3">
                                     <button type="button" class="btn btn-info btn-sm" style="padding: 3px; margin: 5px;">
-                                        <a href="<?= site_url('c_tampil/editjarak/') . $j['idjar'] ?>"><i class="fa fa-edit fa-2x"></i></a>
+                                        <a href="<?= site_url('c_tampil/editjarak/') . $j['id'] ?>"><i class="fa fa-edit fa-2x"></i></a>
                                     </button>
                                 </div>
                                 <div class="col-sm-6">
                                     <button type="button" class="btn btn-danger" style="padding: 3px; margin: 5px;">
-                                        <a href="<?= site_url('c_hapus/deljarak/') . $j['idjar'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
+                                        <a href="<?= site_url('c_hapus/deljarak/') . $j['id'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
                                     </button>
                                 </div>
                             </div>

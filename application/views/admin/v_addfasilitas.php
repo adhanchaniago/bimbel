@@ -12,13 +12,13 @@
         <div class="form-group">
             <label for="">Id fasilitas</label>
             <input type="text" class="form-control" name="idfasilitas">
+            <small><?= form_error('idfasilitas') ?></small>
         </div>
         <div class="form-group">
             <label for="">Nama fasilitas</label>
             <input type="text" class="form-control" name="fasilitas">
+            <small><?= form_error('fasilitas') ?></small>
         </div>
-        <div class="form-group">
-
-            <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>

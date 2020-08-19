@@ -22,12 +22,6 @@
                     Bimbel
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                   <!--  <li>
-                        <a href="<?= site_url('c_tampil/tambah') ?>">Tambah Bimbel</a>
-                    </li> -->
-                    <!-- <li>
-                        <a href="<?= site_url('c_tampil/foto') ?>">Foto Bimbel</a>
-                    </li> -->
                     <li>
                         <a href="<?= site_url('c_tampil/sekolah') ?>">Sekolah</a>
                     </li>
@@ -37,23 +31,11 @@
                     <li>
                         <a href="<?= site_url('c_tampil/deskripsi') ?>">Deskripsi bimbel</a>
                     </li>
-                    <!-- <li>
-                        <a href="<?= site_url('c_tampil/paket') ?>">Paket Bimbel</a>
-                    </li> -->
-                    <!-- <li>
-                        <a href="<?= site_url('c_tampil/foto') ?>">Foto Bimbel</a>
-                    </li> -->
                     <li>
                         <a href="<?= site_url('c_tampil/kriteria') ?>">Kriteria</a>
                     </li>
                 </ul>
             </li>
-            <!-- <hr>
-            <li>
-                <a href="<?= site_url('c_admin/notif') ?>">
-                    Notification <span class="badge badge-light">2</span>
-                </a>
-            </li>-->
         </ul>
         <div class="container">
             <ul class="list-unstyled CTAs">

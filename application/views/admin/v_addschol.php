@@ -11,12 +11,14 @@
     <br>
     <form action="<?= site_url('c_tambah/addschool') ?>" method="POST">
         <div class="form-group">
-            <label for="">Id School</label>
+            <label for="">Id Sekolah</label>
             <input type="text" class="form-control" name="idsekolah">
+            <small><?php echo form_error('idsekolah'); ?></small>
         </div>
         <div class="form-group">
             <label for="">Nama Sekolah</label>
             <input type="text" class="form-control" name="sekolah">
+            <small><?php echo form_error('sekolah'); ?></small>
         </div>
         <button class="btn btn-primary">Submit</button>
     </form>

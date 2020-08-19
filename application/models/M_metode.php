@@ -6,16 +6,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class M_metode extends CI_Model
 {
 
-    public function wp($data)
+    public function wp()
     {
         // Hapus data di database
         $this->db->query("TRUNCATE wp");
 
         // Normalisasi bobot
-        $kriteria = $this->m_tampil->kriteria();
+        $kriteria = $this->m_tampil->getdata('kriteria');
 
         $bobot = array();
-        foreach ($kriteria->result_array() as $k) {
+        foreach ($kriteria as $k) {
         array_push($bobot, $k["bobot"]);
         }
 
@@ -29,7 +29,8 @@ class M_metode extends CI_Model
         }   
 
         // bimbel
-        $bimbel = $this->m_tampil->getdata("bimbel");
+        $data = $this->session->userdata('sekolah');
+        $bimbel = $this->m_tampil->getdata('bimbel');
         $conbim = count($bimbel);
 
         $hitung_v = [];
@@ -71,12 +72,13 @@ class M_metode extends CI_Model
         }
     }
 
-    public function saw($data)
+    public function saw()
     {
         // hapus database
         $this->db->query("TRUNCATE saw");
 
         // bimbel
+        $data = $this->session->userdata('sekolah');
         $bimbel = $this->m_tampil->getdata("bimbel");
         $conbim = count($bimbel);
 
@@ -89,10 +91,10 @@ class M_metode extends CI_Model
         }
 
         // bobot
-        $kriteria = $this->m_tampil->kriteria();
+        $kriteria = $this->m_tampil->getdata('kriteria');
 
         $bobot = array();
-        foreach ($kriteria->result_array() as $k) {
+        foreach ($kriteria as $k) {
         array_push($bobot, $k["bobot"]);
         }
 
@@ -144,67 +146,4 @@ class M_metode extends CI_Model
         $poa++;
         }
     }
-
-//     public function ulang($data)
-    //     {
-    //     // Tahap Awal
-    //         $jar = $this->m_tampil->getsek($data);
-    //         $r = $jar->result_array();
-
-//     // hitung jumlah bimbel
-    //         $con = sizeof($r);
-    //         echo "jumlah Bimbel ". $con."<br>";
-
-//     // BOBOT
-    //         $kriteria = array("harga", "fasilitas", "jarak");
-    //         $conk = count($kriteria);
-    //         $bobot = array(59, 53, 40);
-    //         $w = array_sum($bobot);
-
-//         echo "total bobot " .$w."<hr>";
-
-//     // normalisasi bobot
-    //         for ($i=0; $i < $conk; $i++) {
-    //             $v[$i] = round(($bobot[$i]/$w),4);
-    //             echo "Normalisasi bobot " .$v[$i]."<br>";
-    //         }
-
-//         for($i=0;$i<$con; $i++){
-
-//             foreach($r as $j){
-    //             $s=round((pow($j["jarak"],-$v[2])),4);
-
-//             echo " Jarak Bimbel " .$s."<br>";
-
-//             foreach ($r as $f) {
-    //             $fas = $this->m_tampil->getfasbimbel($f["id_bimbel"]);
-    //             $f   = $fas->result_array();
-    //             $d   = sizeof($f);
-
-//             $w   = round((pow($d, $v[1])),4);
-
-//             echo "fasilitas ".$w."<br>";
-
-//             foreach ($r as $h) {
-    //             $har = $this->m_tampil->gethar($h["id_bimbel"]);
-    //             $b   = $har->result_array();
-    //             $hr   =round((pow($b[0]["harga"],-$v[0])),4);
-
-//             // print_r($b);
-    //             echo "harga ".$hr."<br>";
-
-//             $x[$i] =round((pow($j["jarak"],-$v[2]))*(pow($d, $v[1]))*(pow($b[0]["harga"], -$v[0])),4);
-    // echo "<pre>";
-    // echo "<hr>";
-    //             echo "ini dari s ". $s."<br>";
-    //             echo "ini dari w ".$w."<br>";
-    //             echo "ini dari hr ".$hr."<br>";
-    //             echo "ini dari x yang ke $i ".$x[$i]."<br>";
-    // echo "<hr>";
-    // echo "</pre>";
-    //             }
-    //             }
-    //             }
-    //         }
-    //     }
 }

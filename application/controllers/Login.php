@@ -6,13 +6,35 @@ class Login extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
+        $this->load->library('form_validation');
         $this->load->model('m_tampil');
     }
 
     public function index()
     {
         $this->load->view('login/login');
+    }
+
+    public function cek()
+    {
+        $config = array(
+            array(
+                'field' => 'user',
+                'label' => 'username',
+                'rules' => 'required'
+            ),
+            array(
+                'field' => 'pass',
+                'label' => 'password',
+                'rules' => 'required'
+            )
+        );
+        $this->form_validation->set_rules($config);
+        if ($this->form_validation->run() == false) {
+            $this->index();
+        }else{
+            $this->masuk();
+        }
     }
 
     public function masuk()
@@ -23,8 +45,9 @@ class Login extends CI_Controller
             'user' => $user,
             'pass' => $pass
         );
-        $cek = $this->m_tampil->cek_login("akun", $where)->num_rows();
-        if ($cek > 0) {
+        $cek = $this->m_tampil->getlogin("akun", $where);
+
+        if ($cek -> num_rows() !=0) {
 
             $data_session = array(
                 'nama' => $user,
@@ -37,7 +60,7 @@ class Login extends CI_Controller
         } else {
             echo "<script type='text/javascript'>
             alert('Username atau password salah');
-            history.back(self);
+            window.location.href='" . base_url('login') . "';
             </script>
             ";
         }

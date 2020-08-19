@@ -11,19 +11,19 @@
     <br>
     <form action="<?= site_url('c_edit/editfasbimbel') ?>" method="POST">
         <div class="form-group">
-            <label for="">Id Bimbel</label>
+            <label for="">Bimbel</label>
 
             <?php $i = 0;
-            foreach ($get->result() as $b)  if ($i < 2) {
+            foreach ($tampil as $b)  if ($i < 2) {
                 break;
             } { ?>
 
-                <input type="text" value="<?= $b->id_bimbel ?>" class="form-control" name="id">
+                <input type="text" value="<?= $b['id_bimbel'] ?>" class="form-control" name="id">
             <?php } ?>
 
         </div>
         <div class="form-group">
-            <label for="">Id Fasilitas</label>
+            <label for="">Fasilitas</label>
             <?php foreach ($tampil as $t) { ?>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -32,6 +32,7 @@
                         </div>
                     </div>
                     <input type="text" class="form-control" aria-label="Text input with checkbox" value="<?= $t['id_fasilitas'] ?>">
+                    <small><?php echo form_error('idfas'); ?></small>
                 </div>
             <?php } ?>
         </div>

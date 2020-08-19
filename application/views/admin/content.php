@@ -14,8 +14,6 @@
             <thead class="thead-light">
                 <tr>
                     <th scope="col">NO</th>
-
-                    <th scope="col">Id Bimbel</th>
                     <th scope="col">Nama Bimbel</th>
                     <th scope="col">Alamat Bimbel</th>
                     <th scope="col">Harga Bimbel</th>
@@ -28,7 +26,6 @@
                     <tr>
                         <th scope="row"><?= $i++; ?></th>
                         <td hidden><?= $u['id'] ?></td>
-                        <td><?= $u['id_bimbel'] ?></td>
                         <td><?= $u['nama'] ?></td>
                         <td><?= $u['alamat'] ?></td>
                         <td><?= $u['harga'] ?></td>

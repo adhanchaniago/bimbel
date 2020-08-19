@@ -10,19 +10,24 @@
         <div class="form-group">
             <label for="">Id Bimbel</label>
             <input type="text" class="form-control" name="id">
+            <small><?php echo form_error('id'); ?></small>
         </div>
         <div class="form-group">
             <label for="">Nama Bimbel</label>
             <input type="text" class="form-control" name="nama">
+            <small><?php echo form_error('nama'); ?></small>
         </div>
         <div class="form-group">
             <label for="">Alamat</label>
             <input type="text" class="form-control" name="alamat">
+            <small><?php echo form_error('alamat'); ?></small>
         </div>
         <div class="form-group">
             <label for="">Harga</label>
             <input type="text" class="form-control" name="harga">
+            <small><?php echo form_error('harga'); ?></small>
         </div>
+        <br>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>

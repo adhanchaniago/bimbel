@@ -11,179 +11,134 @@ class C_Tampil extends CI_Controller
         $this->load->model('m_tampil');
     }
 
+// Admin
     // Bimbel
     public function index()
     {
-        $data['dasboard'] = [
+        $data = [
             'tampil' => $this->m_tampil->getdata('bimbel')
         ];
-        $this->page('admin/content', $data['dasboard']);
+        $this->page('admin/content',$data);
     }
+
     public function tambah()
     {
-        $data = [];
-        $this->page('admin/v_tambah', $data);
+        $this->page('admin/v_tambah');
     }
-    public function edit($id)
-    {
 
-        $data['bimbel'] = [
-            'edit' => $this->m_tampil->getedit($id)
+    public function edit($where)
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getwhere('bimbel',$where)
         ];
-        $this->page('admin/v_formedit', $data['bimbel']);
+        $this->page('admin/v_formedit',$data);
+    }
+
+    // Fasilitas
+    public function fasilitas()
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getdata('fasilitas'),
+            'getfas' => $this->m_tampil->getfasilitas()
+        ];
+        $this->page('admin/v_fasilitas',$data);
+    }
+
+    public function addfas()
+    {
+        $this->page('admin/v_addfasilitas');
+    }
+
+    public function editfas($where)
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getfas('fasilitas',$where)
+        ];
+        $this->page('admin/v_editfasilitas',$data);
+    }
+
+    // Get Fasilitas
+    public function addfasbimbel()
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getdata('fasilitas'),
+            'bimbel' => $this->m_tampil->getdata('bimbel')
+        ];
+        $this->page('admin/addfasbimbel',$data);
+    }
+
+    public function editfasbimbel($where)
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getfasbim('getfasilitas',$where)
+        ];
+        $this->page('admin/v_editget',$data);
     }
 
     // Sekolah
     public function sekolah()
     {
-        $data['sekolah'] = [
-            'tampil' => $this->m_tampil->getdata('jarak'),
+        $data = [
+            'tampil' => $this->m_tampil->jarak(),
             'sekolah' => $this->m_tampil->getdata('sekolah')
         ];
-        $this->page('admin/v_sekolah', $data['sekolah']);
-    }
-    public function addschool()
-    {
-        $data = [
-            'tampil' => $this->m_tampil->getdata('bimbel')
-        ];
-        $this->page('admin/v_addschol', $data);
-    }
-    public function editsekolah($id)
-    {
-        // $id = $this->uri->statement(3);
-        $data["sekolah"] = [
-            'edit' => $this->m_tampil->getschool($id),
-            'bimbel' => $this->m_tampil->getbimbel()
-        ];
-        $this->page('admin/v_editschol', $data["sekolah"]);
+        $this->page('admin/v_sekolah',$data);
     }
 
-    // Jarak
+    public function addschool()
+    {
+        $this->page('admin/v_addschol');
+    }
+
+    public function editsekolah($where)
+    {
+        $data = [
+            'tampil' => $this->m_tampil->getwhere('sekolah', $where)
+        ];
+        $this->page('admin/v_editschol',$data);
+    }
+
+
+    // Jarak Sekolah
     public function addjarak()
     {
         $data = [
             'tampil' => $this->m_tampil->getdata('bimbel'),
             'sekolah' => $this->m_tampil->getdata('sekolah')
         ];
-        $this->page('admin/v_addjarak', $data);
-    }
-    public function editjarak($id)
-    {
-        // $id = $this->uri->statement(3);
-        $data["sekolah"] = [
-            'edit' => $this->m_tampil->getjar($id),
-
-        ];
-        $this->page('admin/v_editjarak', $data["sekolah"]);
+        $this->page('admin/v_addjarak',$data);
     }
 
-
-    // fasilitas
-    public function fasilitas()
+    public function editjarak($where)
     {
         $data = [
-            'tampil' => $this->m_tampil->getdata('fasilitas'),
-            'getfas' => $this->m_tampil->getdata('getfasilitas')
-        ];
-        $this->page('admin/v_fasilitas', $data);
+            'tampil' => $this->m_tampil->getwhere('jarak', $where)       ];
+        $this->page('admin/v_editjarak',$data);
     }
-    public function addfas()
-    {
-        $data = [];
-        $this->page('admin/v_addfasilitas', $data);
-    }
-    public function editfas($id)
-    {
-        $data = [
-            'fasilitas' => $this->m_tampil->getfas($id)
-        ];
-        $this->page('admin/v_editfasilitas', $data);
-    }
-
-    // Get fasilitas
-    public function addfasbimbel()
-    {
-        $data = [
-            'bimbel' => $this->m_tampil->getdata('bimbel'),
-            'tampil' => $this->m_tampil->getdata('fasilitas')
-        ];
-        $this->page('admin/addfasbimbel', $data);
-    }
-    public function editfasbimbel($id)
-    {
-        $data = [
-            'get' => $this->m_tampil->getfasbimbel($id),
-            'tampil' => $this->m_tampil->getdata('fasilitas')
-        ];
-        $this->page('admin/v_editget', $data);
-    }
-
     // Deskripsi
     public function deskripsi()
     {
         $data = [
-            'tampil' => $this->m_tampil->getdata('deskripsi')
+            'tampil' =>$this->m_tampil->getdes()
         ];
-        $this->page('admin/v_deskripsi', $data);
+        $this->page('admin/v_deskripsi',$data);
     }
+
     public function addesk()
-    {
-        $data = [
-        	'idbim' => $this->m_tampil->getdata('bimbel')
-		];
-        $this->page('admin/adddesk', $data);
-    }
-    public function editdesk($id)
-    {
-        $data = [
-            'desk' => $this->m_tampil->getdes($id)
-        ];
-        $this->page('admin/v_editdesk', $data);
-    }
-
-    // Paket
-    public function paket()
-    {
-        $data = [
-            'tampil' => $this->m_tampil->getdata('paket')
-        ];
-        $this->page('admin/v_paket', $data);
-    }
-    public function addpaket()
-    {
-        $data = [];
-        $this->page('admin/v_addpaket', $data);
-    }
-    public function editpaket($id)
-    {
-        $data = [
-            'paket' => $this->m_tampil->getpaket($id)
-        ];
-        $this->page('admin/v_editpaket', $data);
-    }
-
-    // Foto 
-    public function foto()
-    {
-        $data = [
-            'tampil' => $this->m_tampil->getdata('foto')
-        ];
-        $this->page('admin/v_foto', $data);
-    }
-    public function addfoto()
     {
         $data = [
             'tampil' => $this->m_tampil->getdata('bimbel')
         ];
-        $this->page('admin/v_tambahfoto', $data);
+        $this->page('admin/adddesk',$data);
     }
-    public function editfoto($id)
+
+    public function editdesk($where)
     {
         $data = [
-            'tampil' => $this->m_tampil->getfoto($id)
+            'tampil' =>$this->m_tampil->getwhere('deskripsi', $where),
+            'des' => $this->m_tampil->getdes()
         ];
-        $this->page('admin/v_editfoto', $data);
+        $this->page('admin/v_editdesk',$data);
     }
 
     // Kriteria
@@ -192,27 +147,24 @@ class C_Tampil extends CI_Controller
         $data = [
             'tampil' => $this->m_tampil->getdata('kriteria')
         ];
-        $this->page('admin/v_kriteria', $data);
+        $this->page('admin/v_kriteria',$data);
     }
+
     public function addkriteria()
     {
-        $data = [
-            'tampil' => $this->m_tampil->getdata('bimbel')
-        ];
-        $this->page('admin/v_tambahkriteria', $data);
+        $this->page('admin/v_tambahkriteria');
     }
-    public function editkriteria($id)
+
+    public function editkriteria($where)
     {
         $data = [
-            'tampil' => $this->m_tampil->getkriteria($id)
+            'tampil' => $this->m_tampil->getwhere('kriteria',$where)
         ];
-        $this->page('admin/v_editkriteria', $data);
+        $this->page('admin/v_editkriteria',$data);
     }
+// End Admin
 
-    
-
-
-    public function page($content, $data)
+    public function page($content=true, $data=true)
     {
         $this->load->view('admin/header');
         $this->load->view('admin/dasboard');

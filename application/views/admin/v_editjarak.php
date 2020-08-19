@@ -10,23 +10,23 @@
     <h3>Edit Jarak Sekolah</h3>
     <br>
     <form action="<?= site_url('c_edit/editjarak') ?>" method="POST">
-        <?php foreach ($edit->result() as $b) { ?>
-            <input type="hidden" value="<?= $b->idjar ?>" name="idjar">
+        <?php foreach ($tampil as $b) { ?>
+            <input type="hidden" value="<?= $b['id'] ?>" name="id">
             <div class="form-group">
                 <label for="">Id Sekolah</label>
                 <select name="id_sekolah" class="form-control">
-                    <option value="<?= $b->id_sekolah ?>"><?= $b->id_sekolah ?></option>
+                    <option value="<?= $b['id_sekolah'] ?>"><?= $b['id_sekolah'] ?></option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="">Id Bimbel</label>
                 <select name="id_bimbel" class="form-control">
-                    <option value="<?= $b->id_bimbel ?>"><?= $b->id_bimbel ?></option>
+                    <option value="<?= $b['id_bimbel'] ?>"><?= $b['id_bimbel'] ?></option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="">Jarak</label>
-                <input type="number" class="form-control" name="jarak" value="<?= $b->jarak ?>">
+                <input type="number" class="form-control" name="jarak" value="<?= $b['jarak'] ?>">
             </div>
         <?php } ?>
         <button type="submit" class="btn btn-primary">Submit</button>

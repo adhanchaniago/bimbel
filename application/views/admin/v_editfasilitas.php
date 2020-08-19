@@ -9,14 +9,16 @@
     <br>
     <h3>Edit Fasilitas</h3><br>
     <form action="<?= site_url('c_edit/editfasilitas') ?>" method="POST">
-        <?php foreach ($fasilitas->result() as $f) { ?>
+        <?php foreach ($tampil as $f) { ?>
             <div class="form-group">
                 <label for="">Id fasilitas</label>
-                <input type="text" class="form-control" name="idfasilitas" value="<?= $f->id_fasilitas ?>">
+                <input type="text" class="form-control" name="idfasilitas" value="<?= $f['id_fasilitas'] ?>">
+                <small><?= form_error('idfasilitas')?></small>
             </div>
             <div class="form-group">
                 <label for="">Nama fasilitas</label>
-                <input type="text" class="form-control" name="fasilitas" value="<?= $f->fasilitas ?>">
+                <input type="text" class="form-control" name="fasilitas" value="<?= $f['fasilitas'] ?>">
+                <small><?= form_error('fasilitas')?></small>
             </div>
             <div class="form-group">
             <?php } ?>

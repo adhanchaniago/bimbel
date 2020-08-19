@@ -52,8 +52,8 @@
         <thead class="thead-light">
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Id Bimbel</th>
-                <th scope="col">Id Fasilitas</th>
+                <th scope="col">Bimbel</th>
+                <th scope="col">Fasilitas</th>
                 <th scope="col" class="text-center">Action</th>
             </tr>
         </thead>
@@ -63,7 +63,7 @@
                 <tr>
                     <th scope="row"><?= $i++; ?></th>
                     <td hidden><?= $b['idget'] ?></td>
-                    <td><?= $b['id_bimbel'] ?></td>
+                    <td><?= $b['nama'] ?></td>
                     <td><?= $b['id_fasilitas'] ?></td>
 
                     <td>

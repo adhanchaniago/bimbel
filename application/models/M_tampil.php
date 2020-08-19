@@ -2,104 +2,59 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class M_Tampil extends CI_Model
 {
-    // tampil
-    public function getdata($table)
+// Admin
+    public function getdata($tabel)
     {
-        $res = $this->db->get($table);
+        $res = $this->db->get($tabel);
         $t = $res->result_array();
         return $t;
     }
 
-    // tampil tabel nama bimbel 
-    public function getbim($table)
+    public function getwhere($tabel, $where)
     {
-        $res = $this->db->query('SELECT ' . $table . ' FROM bimbel');
+        $res = $this->db->get_where($tabel, array('id' => $where));
         $t = $res->result_array();
         return $t;
     }
 
-    // tampil bimbel
-    public function getedit($id)
+    // jarak
+    public function jarak()
     {
-        $res = $this->db->get_where('bimbel', array('id' => $id));
-        return $res;
-    }
-    public function gethar($id)
-    {
-        $res = $this->db->query("SELECT harga FROM bimbel WHERE id_bimbel = '$id'");
-        return $res;
+        $res = $this->db->query('SELECT jarak.id, jarak.id_sekolah, sekolah.sekolah, jarak.id_bimbel, bimbel.nama, jarak FROM jarak INNER join sekolah on jarak.id_sekolah = sekolah.id_sekolah INNER JOIN bimbel on jarak.id_bimbel = bimbel.id_bimbel');
+        $t = $res->result_array();
+        return $t;
     }
 
-    // tampil sekolah
-    public function getschool($id)
+    // getfasilitas
+    public function getfasilitas()
     {
-        return $this->db->get_where('sekolah', array('idsek' => $id));
+        $res = $this->db->query('SELECT getfasilitas.id_bimbel, bimbel.nama, id_fasilitas FROM getfasilitas INNER JOIN bimbel ON getfasilitas.id_bimbel = bimbel.id_bimbel ');
+        $t = $res->result_array();
+        return $t;
     }
 
-    public function getbimbel()
+    public function getfas($tabel, $where)
     {
-        $res = $this->db->query('SELECT id_bimbel from bimbel');
-        return $res->result_array();
+        $res = $this->db->get_where($tabel, array('id_fasilitas' => $where));
+        $t = $res->result_array();
+        return $t;
     }
 
-    // tampil jarak
-    public function getjar($id)
-    {
-        return $this->db->get_where('jarak', array('idjar' => $id));
-    }
-    public function getsek($id)
-    {
-        return $this->db->get_where('jarak', array('id_sekolah' => $id));
-    }
-
-    // tampil fasilitas
-    public function getfas($id)
-    {
-        return $this->db->get_where('fasilitas', array('id_fasilitas' => $id));
-    }
-
-    // tampil fasilitas bimbel
     public function getfasbimbel($id)
     {
         return $this->db->get_where('getfasilitas', array('id_bimbel' => $id));
     }
-
-    // tampil Deskripsi
-    public function getdes($id)
+    // deskripsi
+    public function getdes()
     {
-        return $this->db->get_where('deskripsi', array('iddes' => $id));
+        $res = $this->db->query('SELECT deskripsi.id, deskripsi.id_bimbel, bimbel.nama, judul, keterangan, site, no , email, maps, foto FROM deskripsi INNER JOIN bimbel ON deskripsi.id_bimbel = bimbel.id_bimbel');
+        $t = $res->result_array();
+        return $t;
     }
+    
+// End Admin
 
-    // tampil Paket
-    public function getpaket($id)
-    {
-        return $this->db->get_where('paket', array('id_paket' => $id));
-    }
-
-    // tampil Paket
-    public function getfoto($id)
-    {
-        return $this->db->get_where('foto', array('id_foto' => $id));
-    }
-
-    // tampil kriteria
-    public function getkriteria($id)
-    {
-        return $this->db->get_where('kriteria', array('id_kriteria' => $id));
-    }
-
-    public function kriteria()
-    {
-        return $this->db->get('kriteria');
-    }
-
-    // Login
-    public function cek_login($table, $where)
-    {
-        return $this->db->get_where($table, $where);
-    }
-
-    // metode
+// user
     public function wp()
     {
         return $this->db->query("SELECT wp.id_bimbel, wp.hasil, bimbel.nama, bimbel.alamat, bimbel.harga, deskripsi.judul, deskripsi.keterangan,deskripsi.maps, deskripsi.foto FROM wp JOIN bimbel on wp.id_bimbel = bimbel.id_bimbel JOIN deskripsi on bimbel.id_bimbel = deskripsi.id_bimbel ORDER BY hasil DESC");
@@ -113,5 +68,11 @@ class M_Tampil extends CI_Model
     public function detail($id)
     {
         return $this->db->query("SELECT bimbel.nama, bimbel.alamat, bimbel.harga, deskripsi.judul, deskripsi.keterangan, deskripsi.site,deskripsi.no,deskripsi.email, deskripsi.maps, deskripsi.foto FROM bimbel JOIN deskripsi on bimbel.id_bimbel = deskripsi.id_bimbel WHERE bimbel.id_bimbel ='$id'  ");
+    }
+// end user
+// login
+    public function getlogin($tabel, $where)
+    {
+        return $this->db->get_where($tabel, $where);
     }
 }
