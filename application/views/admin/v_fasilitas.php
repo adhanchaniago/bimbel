@@ -62,20 +62,16 @@
             foreach ($getfas as $b) { ?>
                 <tr>
                     <th scope="row"><?= $i++; ?></th>
-                    <td hidden><?= $b['idget'] ?></td>
+                    <td hidden><?= $b['id_fasilitas'] ?></td>
+                    <td hidden><?= $b['id_bimbel'] ?></td>
                     <td><?= $b['nama'] ?></td>
-                    <td><?= $b['id_fasilitas'] ?></td>
+                    <td class="text-center"><?= $b['fasilitas'] ?></td>
 
                     <td>
                         <div class="row">
-                            <div class="col-sm-3 offset-sm-3">
-                                <button type="button" class="btn btn-info btn-sm" style="padding: 3px; margin: 5px;">
-                                    <a href="<?= site_url('c_tampil/editfasbimbel/') . $b['id_bimbel'] ?>"><i class="fa fa-edit fa-2x"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-12 text-center">
                                 <button type="button" class="btn btn-danger" style="padding: 3px; margin: 5px;">
-                                    <a href="<?= site_url('c_hapus/delfasi/') . $b['id_fasilitas'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
+                                    <a href="<?= site_url('c_hapus/delfasi/') .$b['id_bimbel'].'/'.$b['id_fasilitas'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
                                 </button>
                             </div>
                         </div>

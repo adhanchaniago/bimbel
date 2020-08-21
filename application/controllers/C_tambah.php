@@ -169,7 +169,7 @@ class C_Tambah extends CI_Controller
     {
         $config = array(
             array(
-                'field' => 'idfas',
+                'field' => 'idfas[]',
                 'label' => 'Fasilitas',
                 'rules' => 'required'
             )

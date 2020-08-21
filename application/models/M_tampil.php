@@ -28,7 +28,7 @@ class M_Tampil extends CI_Model
     // getfasilitas
     public function getfasilitas()
     {
-        $res = $this->db->query('SELECT getfasilitas.id_bimbel, bimbel.nama, id_fasilitas FROM getfasilitas INNER JOIN bimbel ON getfasilitas.id_bimbel = bimbel.id_bimbel ');
+        $res = $this->db->query('SELECT getfasilitas.id_bimbel, bimbel.nama, getfasilitas.id_fasilitas, fasilitas.fasilitas FROM fasilitas INNER JOIN getfasilitas on fasilitas.id_fasilitas = getfasilitas.id_fasilitas INNER JOIN bimbel ON getfasilitas.id_bimbel = bimbel.id_bimbel');
         $t = $res->result_array();
         return $t;
     }
@@ -42,13 +42,24 @@ class M_Tampil extends CI_Model
 
     public function getfasbimbel($id)
     {
-        return $this->db->get_where('getfasilitas', array('id_bimbel' => $id));
+        $res = $this->db->query('SELECT getfasilitas.id_bimbel, bimbel.nama, id_fasilitas FROM getfasilitas INNER JOIN bimbel ON getfasilitas.id_bimbel = bimbel.id_bimbel WHERE getfasilitas.id_bimbel = "'.$id.'"');
+        $t = $res->result_array();
+        return $t;
     }
+
+
     // deskripsi
     public function getdes()
     {
         $res = $this->db->query('SELECT deskripsi.id, deskripsi.id_bimbel, bimbel.nama, judul, keterangan, site, no , email, maps, foto FROM deskripsi INNER JOIN bimbel ON deskripsi.id_bimbel = bimbel.id_bimbel');
         $t = $res->result_array();
+        return $t;
+    }
+
+    public function getdeswhere($id)
+    {
+        $res = $this->db->query('SELECT deskripsi.id, deskripsi.id_bimbel, bimbel.nama, judul, keterangan, site, no , email, maps, foto FROM deskripsi INNER JOIN bimbel ON deskripsi.id_bimbel = bimbel.id_bimbel WHERE deskripsi.id = "'.$id.'" ');
+        $t = $res ->result_array();
         return $t;
     }
     

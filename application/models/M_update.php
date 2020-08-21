@@ -28,6 +28,7 @@ class M_Update extends CI_Model
 	public function deskripsi()
 	{
 		$data["id"] = $this->input->post('id');
+        $data['idbim'] = $this->input->post('idbim');
         $data["deskripsi"] = $this->input->post('deskripsi');
         $data["keterangan"] = $this->input->post('keterangan');
         $data["site"] = $this->input->post('situs');
@@ -36,6 +37,7 @@ class M_Update extends CI_Model
         $data["maps"] = $this->input->post('maps');
         $data["foto"]    = $this->addfoto();
         $res = array(
+            'id_bimbel' => $data["idbim"],
             'judul' => $data["deskripsi"],
             'keterangan' => $data["keterangan"],
             'site' => $data["site"],
@@ -45,7 +47,7 @@ class M_Update extends CI_Model
 			'foto' => $data["foto"]
         );
         $this->db->where('id',$data['id']);
-        $this->db->update("deskripsi",$res);
+        $this->db->update("deskripsi", $res);
 
         redirect(base_url('c_tampil/deskripsi'));
 	}
@@ -118,33 +120,6 @@ class M_Update extends CI_Model
         redirect(base_url('c_tampil/fasilitas'));
     }
 
-    // Get Falitas
-    public function editfasbim()
-    {
-    	$data["idbimbel"] = $this->input->post('idbimbel');
-        $data["idfas"] = $this->input->post('idfas');
-        $con = count($data["idfas"]);
-
-        for ($i = 0; $i < $con; $i++) {
-            $data["idfas"][$i] . "-";
-        }
-        $fas = implode("-", $data["idfas"]);
-
-        $f = explode("-", $fas);
-
-
-        for ($i = 0; $i < $con; $i++) {
-
-            $res = array(
-                'id_bimbel' => $data["idbimbel"],
-                'id_fasilitas' => $f[$i]
-            );
-
-        $this->db->where('id_bimbel',$data['idbimbel']);
-        $this->db->update("getfasilitas", $res);
-        }
-        redirect(base_url('c_tampil/fasilitas'));
-    }
 
     // Kriteria
     public function editkriteria()

@@ -8,7 +8,7 @@
     </nav>
     <br>
     <h3>Tambah Fasilitas</h3><br>
-    <form action="<?= site_url('c_tambah/fasact') ?>" method="POST">
+    <form action="<?= site_url('c_tambah/addfasbimbel') ?>" method="POST">
         <div class="form-group">
             <label for="">Id fasilitas</label>
             <input type="text" class="form-control" name="idfasilitas">

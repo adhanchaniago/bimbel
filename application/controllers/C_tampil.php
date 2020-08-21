@@ -67,13 +67,15 @@ class C_Tampil extends CI_Controller
         $this->page('admin/addfasbimbel',$data);
     }
 
-    public function editfasbimbel($where)
-    {
-        $data = [
-            'tampil' => $this->m_tampil->getfasbim('getfasilitas',$where)
-        ];
-        $this->page('admin/v_editget',$data);
-    }
+    // public function editfasbimbel($where)
+    // {
+    //     $data = [
+    //         'tampil' => $this->m_tampil->getfasbimbel($where),
+    //         'bimbel' => $this->m_tampil->getdata('bimbel'),
+    //         'getfas' => $this->m_tampil->getdata('fasilitas')
+    //     ];
+    //     $this->page('admin/v_editget',$data);
+    // }
 
     // Sekolah
     public function sekolah()
@@ -135,8 +137,8 @@ class C_Tampil extends CI_Controller
     public function editdesk($where)
     {
         $data = [
-            'tampil' =>$this->m_tampil->getwhere('deskripsi', $where),
-            'des' => $this->m_tampil->getdes()
+        'tampil' => $this->m_tampil->getdeswhere($where),
+        'bimbel' => $this->m_tampil->getdata('bimbel')
         ];
         $this->page('admin/v_editdesk',$data);
     }

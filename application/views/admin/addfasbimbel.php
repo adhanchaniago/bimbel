@@ -24,13 +24,13 @@
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
-                            <input type="checkbox" aria-checked="true" checked="checked" aria-label="Checkbox for following text input" value="<?= $t['fasilitas'] ?>" name="idfas[]">
+                            <input type="checkbox" aria-checked="true" checked="checked" aria-label="Checkbox for following text input" value="<?= $t['id_fasilitas'] ?>" name="idfas[]">
                         </div>
                     </div>
                     <input type="text" class="form-control" aria-label="Text input with checkbox" value="<?= $t['fasilitas'] ?>">
                 </div>
             <?php } ?>
-            <small><?= form_error('idfas') ?></small>
+            <small><?= form_error('idfas[]') ?></small>
         </div>
 
         <button class="btn btn-primary" type="submit">Submit</button>

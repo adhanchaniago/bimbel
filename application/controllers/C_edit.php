@@ -80,11 +80,6 @@ class C_Edit extends CI_Controller
             array(
                 'field' => 'telpon',
                 'label' => 'No Telpon',
-                'rules' => 'required|numeric'
-            ),
-            array(
-                'field' => 'maps',
-                'label' => 'Maps',
                 'rules' => 'required'
             )
         );
@@ -92,7 +87,7 @@ class C_Edit extends CI_Controller
         if ($this->form_validation->run($config)==false) {
             $where = $this->input->post('id');
             $data = [
-                'tampil' => $this->m_tampil->getwhere('deskripsi',$where)
+                'tampil' => $this->m_tampil->getdeswhere($where)
             ];
             $this->page('admin/v_editdesk',$data);
         }
@@ -177,27 +172,6 @@ class C_Edit extends CI_Controller
         }
     }
 
-    // Get Falitas
-    public function editfasbimbel()
-    {
-        $config = array(
-            array(
-                'field' => 'idfas',
-                'label' => 'Fasilitas',
-                'rules' => 'required'
-            )
-        );
-        $this->form_validation->set_rules($config);
-        if ($this->form_validation->run() == false) {
-            $data = [
-                'bimbel' => $this->m_tampil->getdata('bimbel'),
-                'tampil' => $this->m_tampil->getdata('fasilitas')
-            ];
-            $this->page('admin/v_editget',$data);
-        }else{
-            $this->m_update->editfasbim();
-        }
-    }
     // Kriteria
     public function editkriteria()
     {

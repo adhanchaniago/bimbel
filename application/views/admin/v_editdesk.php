@@ -16,11 +16,11 @@
             </div>
             <div class="form-group">
                 <label for="">Judul</label>
-            <select class="form-control" name="id" id="exampleFormControlSelect1">
-                <option value="<?php echo $d["id_bimbel"] ?>"><?php echo $d["nama"] ?></option>
-                <?php foreach ($des as $id) { ?>
-                <option value="<?php echo $id["id_bimbel"] ?>"><?php echo $id["nama"] ?></option>
-                <?php } ?>
+            <select class="form-control" name="idbim" id="exampleFormControlSelect1">
+                <option value="<?php echo $d["id_bimbel"] ?>"><?php echo $d["nama"] ?></option><hr>
+                <?php foreach ($bimbel as $key): ?>
+                <option value="<?php echo $key["id_bimbel"] ?>"><?php echo $key["nama"] ?></option>
+                <?php endforeach ?>
             </select>
             </div>
             <div class="form-group">
